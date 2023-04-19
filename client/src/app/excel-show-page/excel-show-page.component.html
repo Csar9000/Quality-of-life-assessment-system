@@ -1,0 +1,31 @@
+<h3>Результаты тестирования</h3>
+
+<button (click)="exportAsXLSX()" class="btn btn-info mb-4 mt-2">Скачать отчёт</button>
+
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Возрастная категория</th>
+      <th>Стаж работы</th>
+      <th>Должность</th>
+      <th>Код сотрудника</th>
+      <th>Пол</th>
+      <th>Лояльность</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of excel; index as i">
+      <td>{{item['id']}}</td>
+      <td>{{item['stage']}}</td>
+      <td>{{item['work_stage']}}</td>
+      <td>{{item['post']}}</td>
+      <td>{{item['user_code']}}</td>
+      <td>{{item['gender']}}</td>
+      <td>{{item['loyal']}}</td>
+    </tr>
+  </tbody>
+
+
+</table>
