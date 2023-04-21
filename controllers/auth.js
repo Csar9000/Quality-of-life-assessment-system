@@ -24,7 +24,7 @@ class UserController{
             }, config.jwt, {expiresIn: 60*60})
 
             res.status(200).json({
-                token: token
+                token: `Bearer ${token}`
             })
         }else{
             res.status(401).json({
@@ -39,29 +39,38 @@ class UserController{
     }
     async register(req, res){
         const user = await User.findOne({where: {codeUser: req.body.codeUser}})
-        if(!user) {
-  
-            try{
-                const salt = bcrypt.genSaltSync(10)
-                const password = req.body.password
-                const user = await User.create ({
-                    codeUser: req.body.codeUser,
-                    idDepartment: req.body.idDepartment,
-                    ageCategory: req.body.ageCategory,
-                    workStageCategory: req.body.workStageCategory,
-                    gender: req.body.gender,
-                    post:req.body.post,
-                    password:bcrypt.hashSync(password, salt)
-                })
+        if(user) {
+            if(user.ageCategory == null){
+                try{
+                    const salt = bcrypt.genSaltSync(10)
+                    const password = req.body.password
+                    const user = await User.update ({
+                        idDepartment: req.body.idDepartment,
+                        ageCategory: req.body.ageCategory,
+                        workStageCategory: req.body.workStageCategory,
+                        gender: req.body.gender,
+                        post:req.body.post,
+                        password:bcrypt.hashSync(password, salt)
+                    },{
+                        where: {
+                            codeUser: req.body.codeUser,
+                        }
+                      })
+        
+                    res.status(201).json(user)
+                }catch(e){
     
-                res.status(201).json(user)
-            }catch(e){
-
+                }
+            }
+            else{
+                res.status(409).json({
+                    message: 'Вы уже зарегистрированы'
+                })
             }
 
         }else{
             res.status(409).json({
-                message: 'Код юзера такой уже есть'
+                message: 'Вашего номера нет в системе'
             })
         }
     }
