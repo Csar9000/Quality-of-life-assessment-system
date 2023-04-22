@@ -4,3 +4,8 @@ export interface Result{
     idTesting: number
     codeUser: number
 }
+
+export interface User{
+    codeUser: number
+    password: string
+}

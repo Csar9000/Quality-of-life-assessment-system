@@ -1,6 +1,6 @@
 const express = require('express')
-const resultRouter = require('./routes/result.routes')
-const loginRouter = require('./routes/login.routes')
+const resultRouter = require('./routes/result')
+const loginRouter = require('./routes/auth')
 const PORT = process.env.PORT || 8080
 const passport = require('passport')
 const Result = require('./models/result')
