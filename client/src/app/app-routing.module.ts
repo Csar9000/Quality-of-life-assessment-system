@@ -17,8 +17,8 @@ const routes: Routes = [
   },
   {
     path: '', component: SiteLayoutComponent,canActivate:[AuthGuard], children:[
-      {path:'results', component: TestingPageComponent},
-      {path:'testing', component: ExcelShowPageComponent}
+      {path:'testing', component: TestingPageComponent},
+      {path:'results', component: ExcelShowPageComponent}
       // {path:'history', component: HistoryPageComponent},
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},

@@ -18,7 +18,6 @@ export class QuestionSingleFormComponent {
   getResult(){
     let obs$:any
     this.elRef?.forEach((el: ElementRef) => {
-
       if(el.nativeElement.checked){
         var str = el.nativeElement.id
         //console.log(div.nativeElement.id)
@@ -29,8 +28,6 @@ export class QuestionSingleFormComponent {
         //console.log(obs$)
         obs$.subscribe()
       }
-      
-      
     });
     
     

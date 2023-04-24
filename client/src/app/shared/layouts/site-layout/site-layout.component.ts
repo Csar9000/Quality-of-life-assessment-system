@@ -11,7 +11,7 @@ export class SiteLayoutComponent {
 
   links=[
      {url:'/result',name:'Тестирование'},
-     {url:'/excel',name:'Результаты'}
+     {url:'/results',name:'Результаты'}
     // {url:'/history',name:'История'},
     // {url:'/order',name:'Добавить заказ'},
     // {url:'/categories',name:'Ассортимент'}

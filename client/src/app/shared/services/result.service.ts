@@ -20,7 +20,7 @@ export class ResultService{
     create(idFactor:number,idAnswer:number):Observable<Result>{
         console.log(idFactor,idAnswer)
 
-        return this.http.post<Result>('/api/createResult', {"idFactor": idFactor, "idAnswer": idAnswer});
+        return this.http.post<Result>('/api/createResult', {"idAnswer": idAnswer, "idFactor": idFactor});
     }
 
     getExcel():void{

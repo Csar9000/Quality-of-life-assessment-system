@@ -13,6 +13,7 @@ import { QuestionSingleFormComponent } from './question-single-form/question-sin
 })
 export class TestingPageComponent {
 
+  answersAndQuestions = []
 
   @ViewChild(QuestionSingleFormComponent)
   childComponentSingleQuestion?: QuestionSingleFormComponent;
@@ -22,6 +23,8 @@ export class TestingPageComponent {
 
   constructor(private resultService: ResultService,
               private router:Router,private route: ActivatedRoute){
+      
+                
   }
 
 

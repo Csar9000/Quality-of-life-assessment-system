@@ -47,7 +47,7 @@ export class LopinPageComponent implements OnInit, OnDestroy {
       password: this.form.value.password
     }
     this.aSub = this.auth.login(user).subscribe({
-      next: ()=> this.router.navigate(['/results']),
+      next: ()=> this.router.navigate(['/testing']),
     error:error => {
       //MaterialService.toast(error.error.message)
       this.form?.enable()
