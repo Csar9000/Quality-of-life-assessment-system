@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Question } from 'src/app/interfaces';
+import { Answer } from 'src/app/interfaces';
 import { MaterialService } from 'src/app/shared/classes/material.service';
 import { ResultService } from 'src/app/shared/services/result.service';
 
@@ -10,9 +12,14 @@ import { ResultService } from 'src/app/shared/services/result.service';
   styleUrls: ['./question-single-form.component.css']
 })
 export class QuestionSingleFormComponent {
-  @ViewChildren("myname") elRef?: QueryList<ElementRef>;
-  constructor(private resultService: ResultService,private http: HttpClient){
+  public questions: Question[] = []
+  public answ: Answer[] = []
 
+  @ViewChildren("myname") elRef?: QueryList<ElementRef>;
+  
+  constructor(private resultService: ResultService,private http: HttpClient){
+    
+   
   }
 
   getResult(){
@@ -30,7 +37,31 @@ export class QuestionSingleFormComponent {
       }
     });
     
-    
-    //this.resultService.fetch()
+  }
+
+  
+  viewQuestions(questions: Question[]){
+      this.questions = questions
+
+      this.elRef?.forEach((el: ElementRef) => {
+        var id = el.nativeElement.id
+        var str = ''
+        this.questions.forEach(element => {
+          element.answers.forEach(ans=>{
+            if(ans.idAnswer == id){
+              str = ans.idAnswer.toString()
+              console.log(str)
+              ans.factor.forEach(f => {
+                str+=`-${f.idFactor.toString()}`
+              });
+            }
+            
+          })
+          
+        });
+        el.nativeElement.id = str
+    });
+      
+      
   }
 }

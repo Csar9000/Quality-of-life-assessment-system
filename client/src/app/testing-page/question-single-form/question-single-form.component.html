@@ -1,24 +1,20 @@
-<FORM name=test>
-    <H5> 2.	Насколько вы оцениваете психологическую обстановку в Вашем цехе? </H5>
-        <form action="#">
-            <p>
-              <label>
-                <input #myname id="1-1" [value]="1-1" name="group1" type="radio" checked />
-                <span>хорошо</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input #myname id="1-2" [value]="1-1" name="group1" type="radio" checked />
-                <span>средне</span>
-              </label>
-            </p>
-            <p>
-              <label>
-                <input #myname id="1-3" [value]="1-1" name="group1" type="radio" checked />
-                <span>плохо</span>
-              </label>
-            </p>
-          </form>
+<FORM  name=test>
+  <div *ngFor="let item of questions">
+    <H5> {{item.textQuestion}}</H5>
+    <form action="#">
+      <div *ngFor="let i of item.answers">
+        <p>
+          <label>
+            <input #myname id="{{i.idAnswer}}" [value]="1-1" name="group1" type="radio" />
+            <span>{{i.textAnswer}}</span>
+          </label>
+        </p>
+
+
+      </div>
+       
+      </form>
+  </div>
+   
     
     

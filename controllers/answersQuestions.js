@@ -8,10 +8,12 @@ const { password } = require('../config/db.config')
 
 class AnswerQuestionController{
     async getQuestions(req, res){
-      
-      const answers = await db.query('select getQuestionsAnswers();',{plain: true,raw: true});
-
-    res.status(200).json(answers)
+      await db.query('select getQuestionsAnswers();',{plain: true,raw: true}).then(function(response) {
+        var data = JSON.parse(JSON.stringify(response));
+        data = data[ 'getquestionsanswers' ];
+        data = JSON.stringify(data);
+        res.json(data);
+      });
     }
 }
 

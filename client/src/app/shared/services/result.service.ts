@@ -7,8 +7,6 @@ import { Result } from "src/app/interfaces";
     providedIn: 'root'
 })
 export class ResultService{
-    private results$ =  new Subject<number[][]>();
-
 
     constructor(private http: HttpClient){
         
@@ -19,9 +17,9 @@ export class ResultService{
 
     create(idFactor:number,idAnswer:number):Observable<Result>{
         console.log(idFactor,idAnswer)
-
         return this.http.post<Result>('/api/createResult', {"idAnswer": idAnswer, "idFactor": idFactor});
     }
+    
 
     getExcel():void{
         this.http.get('/api/createExcel');
