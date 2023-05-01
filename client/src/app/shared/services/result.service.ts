@@ -16,8 +16,7 @@ export class ResultService{
     }
 
     create(idFactor:number,idAnswer:number):Observable<Result>{
-        console.log(idFactor,idAnswer)
-        return this.http.post<Result>('/api/createResult', {"idAnswer": idAnswer, "idFactor": idFactor});
+        return this.http.post<Result>('/api/createResult', {"idAnswer": idFactor, "idFactor": idAnswer});
     }
     
 

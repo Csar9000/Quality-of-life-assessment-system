@@ -8,7 +8,7 @@ class ResultController{
       const result = await Result.create({
           codeUser: 12,
           idAnswer: req.body.idAnswer,
-          idFactor:req.body.idFactor,
+          idFactor: req.body.idFactor,
           idTesting: 1
       })
       res.json(result)
