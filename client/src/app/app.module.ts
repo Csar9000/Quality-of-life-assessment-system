@@ -9,11 +9,14 @@ import { QuestionSingleFormComponent } from './testing-page/question-single-form
 import { QuestionMultipleFormComponent } from './testing-page/question-multiple-form/question-multiple-form.component';
 import { QuestionScaleFormComponent } from './testing-page/question-scale-form/question-scale-form.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MatTabsModule } from '@angular/material/tabs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExcelShowPageComponent } from './excel-show-page/excel-show-page.component';
 import { LopinPageComponent } from './lopin-page/lopin-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { TokenInterceptor } from './shared/classes/token.interceptor';
+import { QuestionConstrutorComponent } from './question-construtor/question-construtor.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +28,14 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
     QuestionScaleFormComponent,
     ExcelShowPageComponent,
     LopinPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    QuestionConstrutorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

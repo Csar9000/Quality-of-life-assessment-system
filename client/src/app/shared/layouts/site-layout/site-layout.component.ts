@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,9 +10,9 @@ export class SiteLayoutComponent {
 
 
   links=[
-     {url:'/result',name:'Тестирование'},
-     {url:'/results',name:'Результаты'}
-    // {url:'/history',name:'История'},
+     {url:'/testing',name:'Тестирование'},
+     {url:'/results',name:'Результаты'},
+     {url:'/constructor',name:'История'}
     // {url:'/order',name:'Добавить заказ'},
     // {url:'/categories',name:'Ассортимент'}
   ]

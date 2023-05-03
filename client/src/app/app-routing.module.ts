@@ -6,6 +6,7 @@ import { TestingPageComponent } from './testing-page/testing-page.component';
 import { LopinPageComponent } from './lopin-page/lopin-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { AuthGuard } from './shared/classes/auth.guard';
+import { QuestionConstrutorComponent } from './question-construtor/question-construtor.component';
 
 const routes: Routes = [
   {
@@ -16,10 +17,11 @@ const routes: Routes = [
   ]
   },
   {
-    path: '', component: SiteLayoutComponent,canActivate:[AuthGuard], children:[
+    path: '', component: SiteLayoutComponent, canActivate:[AuthGuard], children:[
       {path:'testing', component: TestingPageComponent},
-      {path:'results', component: ExcelShowPageComponent}
-      // {path:'history', component: HistoryPageComponent},
+      {path:'results', component: ExcelShowPageComponent},
+      {path:'constructor', component: QuestionConstrutorComponent},
+      {path:'history', component: QuestionConstrutorComponent},
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},
       // {path:'categories/new', component: CategoriesFormComponent},
