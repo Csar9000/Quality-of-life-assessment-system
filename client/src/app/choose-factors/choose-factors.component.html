@@ -1,0 +1,66 @@
+<div class="dialog">
+  <div mat-dialog-content style="padding-bottom: 0px;" >
+  <div class="row">
+    <div class="col-md-6" >
+      <p style="font-size: 20px;">Основной фактор</p>
+      <div class="wrapper">
+        <div class="box">
+          <label>
+            <input id="1-2" #checkbox type="checkbox" />
+            <span>Здоровье </span>
+          </label>
+        </div>
+        <div class="box">
+          <label>
+            <input id="1-2" #checkbox type="checkbox" />
+            <span>Финансы </span>
+          </label>
+        </div>
+        <div class="box">
+          <label>
+            <input id="1-2" #checkbox type="checkbox" />
+            <span>Социум</span>
+          </label>
+        </div>
+        <div class="box">
+          <label>
+            <input id="1-2" #checkbox type="checkbox" />
+            <span>Эмоции </span>
+          </label>
+        </div>
+        <div class="box">
+          <label>
+            <input id="1-2" #checkbox type="checkbox" />
+            <span>Профессионализм </span>
+          </label>
+        </div>
+        <p style="font-size: 20px;">Результаты поиска</p>
+        
+      </div>
+
+
+  </div>
+  <div class="col-md-6">
+  <mat-form-field style="width: 300px;">
+    <input  matInput  placeholder="Поиск по названию фактора" >
+  </mat-form-field>
+</div>
+    </div>
+  </div>
+  <div class="wrapper" style="border-color:black; width: auto; height: 150px;">
+    <div *ngFor="let i of factors" style="margin-left: 43px;">
+      <div class="box">
+        <label>
+          <input id="1-2" #checkbox type="checkbox" />
+          <span>{{i.nameFactor}} </span>
+        </label>
+      </div>
+
+    </div>
+  </div>
+    
+  <div mat-dialog-actions style="position: absolute; bottom:0px; right:0px;">
+    <button mat-button (click)="onNoClick()">Новый фактор</button>
+    <button mat-button  cdkFocusInitial>Добавить фактор</button>
+  </div>
+</div>

@@ -10,5 +10,7 @@ router.get('/result', passport.authenticate('jwt', {session:false}),resultContro
 router.get('/getResult',resultController.getRes)
 router.get('/getQuestions', answersQuestions.getQuestions)
 
+router.get('/getFactors', answersQuestions.getFactors)
+
 
 module.exports = router

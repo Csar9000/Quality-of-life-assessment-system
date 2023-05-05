@@ -10,12 +10,7 @@ class UserController{
     async login(req, res){
       
       const user = await User.findOne({where: {codeUser: req.body.codeUser}})
-    //   res.status(200).json({
-    //     k: user.codeUser,
-    //     token: user.password,
-    //     kk: req.body.codeUser,
-    //     kkk: req.body.password
-    // })
+
       if(user) {
         const passwordResult = bcrypt.compareSync(req.body.password, user.password)
         if (passwordResult){

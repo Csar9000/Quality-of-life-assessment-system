@@ -5,6 +5,7 @@ const answers = require('../models/Answers')
 const questions = require('../models/Question')
 const config = require('../config/db.config')
 const { password } = require('../config/db.config')
+const Factor = require('../models/Factors')
 
 class AnswerQuestionController{
     async getQuestions(req, res){
@@ -14,6 +15,11 @@ class AnswerQuestionController{
         data = JSON.stringify(data);
         res.json(data);
       });
+    }
+
+    async getFactors(req,res){
+      const factors = await Factor.findAll()
+      res.json(factors);
     }
 }
 

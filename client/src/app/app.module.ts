@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,10 +13,20 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ExcelShowPageComponent } from './excel-show-page/excel-show-page.component';
+import {MatDatepickerModule} from  '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from  '@angular/material/input'
+import {MatCardModule} from '@angular/material/card'
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatRadioModule} from  '@angular/material/radio'
+import {MatListModule} from  '@angular/material/list'
 import { LopinPageComponent } from './lopin-page/lopin-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { TokenInterceptor } from './shared/classes/token.interceptor';
 import { QuestionConstrutorComponent } from './question-construtor/question-construtor.component';
+import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
+import { ChooseFactorsComponent } from './choose-factors/choose-factors.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +39,28 @@ import { QuestionConstrutorComponent } from './question-construtor/question-cons
     ExcelShowPageComponent,
     LopinPageComponent,
     RegisterPageComponent,
-    QuestionConstrutorComponent
+    QuestionConstrutorComponent,
+    QuestionSingleConstructorComponent,
+    ChooseFactorsComponent
   ],
   imports: [
     BrowserModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatRadioModule,
     AppRoutingModule,
+    MatListModule,
+    MatCardModule,
     MatTabsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
   ],
+
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

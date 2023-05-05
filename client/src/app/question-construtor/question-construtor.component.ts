@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import {MatTabsModule} from '@angular/material/tabs'
 
+
 @Component({
   selector: 'app-question-construtor',
   templateUrl: './question-construtor.component.html',

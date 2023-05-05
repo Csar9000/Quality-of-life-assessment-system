@@ -1,6 +1,13 @@
-<div style="height: 400px;">
-  <mat-tab-group animationDuration="0ms">
-  <mat-tab label="First">Content 1</mat-tab>
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
-</mat-tab-group></div>
+
+  <mat-tab-group mat-align-tabs="center" animationDuration="5ms">
+  <mat-tab label="Один вариант ответа" style="width:500px">
+    <ng-template matTabContent>
+      <app-question-single-constructor></app-question-single-constructor>
+    </ng-template>
+
+  </mat-tab>
+  <mat-tab label="Несколько вариантов ответов">Content 2</mat-tab>
+  <mat-tab label="Шкала оценки">Content 3</mat-tab>
+</mat-tab-group>
+
+

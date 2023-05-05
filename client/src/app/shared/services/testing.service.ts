@@ -13,4 +13,8 @@ export class testingService {
   public getQuestions(): any{
     return this.http.get('api/getQuestions')
   }
+
+  public getFactors():any{
+    return this.http.get('api/getFactors')
+  }
 }

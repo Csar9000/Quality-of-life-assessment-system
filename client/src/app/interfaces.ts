@@ -32,4 +32,12 @@ export interface Factor {
   idFactor: number
 }
 
+
+export interface FactorOrigin{
+  idFactor: number
+  mainFactor: string
+  nameFactor: string
+
+}
+
   
