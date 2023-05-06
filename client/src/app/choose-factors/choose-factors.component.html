@@ -51,7 +51,7 @@
     <div *ngFor="let i of factors" style="margin-left: 43px;">
       <div class="box">
         <label>
-          <input id="1-2" #checkbox type="checkbox" />
+          <input id="{{i.idFactor}}" #factor #checkbox type="checkbox" />
           <span>{{i.nameFactor}} </span>
         </label>
       </div>

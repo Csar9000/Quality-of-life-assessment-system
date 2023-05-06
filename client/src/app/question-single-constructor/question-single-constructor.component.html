@@ -1,20 +1,21 @@
 
 <div class="main-div">
 <mat-card-content>
-    <form class="my-form">
+    <form class="my-form wrapper">
        <mat-form-field class="full-width">
               <mat-label>Текст вопроса</mat-label>
               <input  matInput  placeholder="Текст вопроса"  name="fname"  required>
         </mat-form-field>
             <mat-label class="full-width">Выбор факторов</mat-label>
             <button mat-button (click)="openDialog()"  color="primary" >Выбрать</button>
-            <mat-list class="full-width">
-                <mat-list-item> Фактор 1 </mat-list-item>
-                <mat-list-item> Фактор 2 </mat-list-item>
-                <mat-list-item> Фактор 3 </mat-list-item>
-            </mat-list>
+            <div class="box" style="min-height: 50px; background-color:aqua">
+                <mat-list *ngFor="let i of factors" class="full-width">
+                    <mat-list-item style="height: 20px;"> {{i.nameFactor}} </mat-list-item>
+                </mat-list>
+            </div>
+
         <mat-label class="full-width">Варианты ответов</mat-label>
-        <div class="d row" style="justify-content:center">
+        <div class="d row mb-0" style="justify-content:center">
             <div class="col-md-1" style="align-items: center; display: flex;" >
                 <label for="title" style="margin:auto;">Номер</label>
             </div>
@@ -25,17 +26,28 @@
                 <label for="title" style="margin:auto;">Веса влияния на факторы</label>
             </div>
         </div>
+        
         <div #R class="R">
-            <div #el>
+            <div #el *ngFor="let i of arr">
                 <div class="row" style="justify-content:center">
                     <div class="col-md-1" style="align-items: center; display: flex;" >
-                            <label for="title" style="margin:auto;"></label>
+                            <label for="title" style="margin:auto;">{{i}}</label>
                         </div>
                         <div class="col-md-6" style="align-items: center; display: flex;">
                             <input #answerText  matInput  placeholder="Текст вопроса"  name="fname"  required>
                         </div>
                         <div class="col-md-5" style="align-items: center; display: flex;">
-                            <label for="title" style="margin:auto;">Веса влияния на факторы</label>
+                            <div class="wrapper">
+                                <mat-list *ngFor="let i of factors" class="full-width"style="align-items: center;">
+                                    <div class="box" >
+                                        <mat-list-item style="height: 30px; font: size 14px;"> {{i.nameFactor}} =
+                                            <input  matInput style="height: 20px;width: 30px;font: size 10px;" name="fname"  required>
+                                        </mat-list-item>
+                                    </div>
+                                    
+                                </mat-list>
+                            </div>
+                            
                         </div>
                     </div>
         
@@ -44,7 +56,8 @@
 
 
 
-        <button (click)="createEl()" mat-button color="primary" style="justify-content:end">Добавить вопрос</button>
+        <button (click)="createEl()" mat-button color="primary" style="justify-content:end">Добавить ответ</button>
+        <button mat-button color="primary" style="justify-content:end">Сохранить вопрос</button>
 
     </form>
   </mat-card-content>

@@ -12,7 +12,7 @@ export class SiteLayoutComponent {
   links=[
      {url:'/testing',name:'Тестирование'},
      {url:'/results',name:'Результаты'},
-     {url:'/constructor',name:'История'}
+     {url:'/constructor',name:'Создание вопроса'}
     // {url:'/order',name:'Добавить заказ'},
     // {url:'/categories',name:'Ассортимент'}
   ]

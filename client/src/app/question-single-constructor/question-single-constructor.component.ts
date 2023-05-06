@@ -13,7 +13,8 @@ import { ChooseFactorsComponent } from '../choose-factors/choose-factors.compone
   styleUrls: ['./question-single-constructor.component.css']
 })
 export class QuestionSingleConstructorComponent {
-  counter = 0
+  counter = 1
+  arr: any = []
   factors: FactorOrigin[] = []
 
   @ViewChild('R') d1:ElementRef | undefined;
@@ -21,9 +22,12 @@ export class QuestionSingleConstructorComponent {
 
   createEl():void {
     this.counter+=1
-    this.d1?.nativeElement.insertAdjacentHTML('beforeend', this.d2?.nativeElement.innerHTML);
+    //this.d1?.nativeElement.insertAdjacentHTML('beforeend', this.d2?.nativeElement.innerHTML);
+    this.arr.push(this.counter)
   }
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {
+    this.arr.push(this.counter)
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ChooseFactorsComponent, {
@@ -33,7 +37,8 @@ export class QuestionSingleConstructorComponent {
     dialogRef.afterClosed().subscribe(result => {
       
       console.log('The dialog was closed');
-      //this.animal = result;
+      this.factors = result
+      console.log(this.factors)
     });
   }
 }
