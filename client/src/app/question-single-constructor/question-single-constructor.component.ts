@@ -1,10 +1,12 @@
-import { Component, ComponentFactoryResolver, ElementRef, Inject, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ContentChildren, ElementRef, Inject, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
 import { MatFormField } from '@angular/material/form-field';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { FactorOrigin, User } from '../interfaces';
+import { Answer, AnswerToSave, FactorOrigin,FactorToSave, User } from '../interfaces';
 import { ChooseFactorsComponent } from '../choose-factors/choose-factors.component';
+import { type } from 'os';
+import { AnswerElementComponent } from '../answer-element/answer-element.component';
 
 
 @Component({
@@ -17,16 +19,25 @@ export class QuestionSingleConstructorComponent {
   arr: any = []
   factors: FactorOrigin[] = []
 
-  @ViewChild('R') d1:ElementRef | undefined;
-  @ViewChild('el') d2:ElementRef | undefined;
+  textQuestion: string = ''
+  typeQuestion: number = 1
 
-  createEl():void {
-    this.counter+=1
-    //this.d1?.nativeElement.insertAdjacentHTML('beforeend', this.d2?.nativeElement.innerHTML);
-    this.arr.push(this.counter)
-  }
+  @ViewChild(AnswerElementComponent)
+  childAnswerElement: AnswerElementComponent | undefined;
+
+  @ViewChild('textQuestion') qText: ElementRef | undefined
+  
+  answers: AnswerToSave[] | undefined
+
+
+
   constructor(public dialog: MatDialog) {
     this.arr.push(this.counter)
+  }
+
+  saveQuestion(){
+    this.childAnswerElement?.saveQuestion()
+
   }
 
   openDialog(): void {
@@ -35,10 +46,11 @@ export class QuestionSingleConstructorComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      
-      console.log('The dialog was closed');
+    
       this.factors = result
-      console.log(this.factors)
+      this.childAnswerElement!!.textQuestion = this.qText?.nativeElement.value
+      this.childAnswerElement!!.factors = result
+
     });
   }
 }

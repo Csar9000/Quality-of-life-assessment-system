@@ -11,6 +11,7 @@ router.get('/getResult',resultController.getRes)
 router.get('/getQuestions', answersQuestions.getQuestions)
 
 router.get('/getFactors', answersQuestions.getFactors)
+router.post('/createQuestion', answersQuestions.createQuestion)
 
 
 module.exports = router

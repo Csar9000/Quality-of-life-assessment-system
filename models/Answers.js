@@ -7,7 +7,7 @@ const Answers = db.define("Answers",
     idAnswer: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
       allowNull: false
     },
     idQuestion: {

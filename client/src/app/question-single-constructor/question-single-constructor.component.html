@@ -4,7 +4,7 @@
     <form class="my-form wrapper">
        <mat-form-field class="full-width">
               <mat-label>Текст вопроса</mat-label>
-              <input  matInput  placeholder="Текст вопроса"  name="fname"  required>
+              <input #textQuestion matInput  placeholder="Текст вопроса"   required>
         </mat-form-field>
             <mat-label class="full-width">Выбор факторов</mat-label>
             <button mat-button (click)="openDialog()"  color="primary" >Выбрать</button>
@@ -27,37 +27,11 @@
             </div>
         </div>
         
-        <div #R class="R">
-            <div #el *ngFor="let i of arr">
-                <div class="row" style="justify-content:center">
-                    <div class="col-md-1" style="align-items: center; display: flex;" >
-                            <label for="title" style="margin:auto;">{{i}}</label>
-                        </div>
-                        <div class="col-md-6" style="align-items: center; display: flex;">
-                            <input #answerText  matInput  placeholder="Текст вопроса"  name="fname"  required>
-                        </div>
-                        <div class="col-md-5" style="align-items: center; display: flex;">
-                            <div class="wrapper">
-                                <mat-list *ngFor="let i of factors" class="full-width"style="align-items: center;">
-                                    <div class="box" >
-                                        <mat-list-item style="height: 30px; font: size 14px;"> {{i.nameFactor}} =
-                                            <input  matInput style="height: 20px;width: 30px;font: size 10px;" name="fname"  required>
-                                        </mat-list-item>
-                                    </div>
-                                    
-                                </mat-list>
-                            </div>
-                            
-                        </div>
-                    </div>
-        
-            </div>
-        </div>
+        <app-answer-element></app-answer-element>
 
 
-
-        <button (click)="createEl()" mat-button color="primary" style="justify-content:end">Добавить ответ</button>
-        <button mat-button color="primary" style="justify-content:end">Сохранить вопрос</button>
+        <button (click)="childAnswerElement?.createEl()" mat-button color="primary" style="justify-content:end">Добавить ответ</button>
+        <button (click)="saveQuestion()" mat-button color="primary" style="justify-content:end">Сохранить вопрос</button>
 
     </form>
   </mat-card-content>

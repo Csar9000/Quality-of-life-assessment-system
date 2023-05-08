@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from "rxjs";
-import { Root } from 'src/app/interfaces';
+import { Answer, AnswerToSave, Root } from 'src/app/interfaces';
 
 
 @Injectable({
@@ -16,5 +16,14 @@ export class testingService {
 
   public getFactors():any{
     return this.http.get('api/getFactors')
+  }
+
+  public createQuestion(textQuestion: string, typeQuestion: number, answers:AnswerToSave[]): any{
+    var req ={
+      answers: answers,
+      textQuestion: textQuestion,
+      typeQuestion: typeQuestion
+    }
+    return this.http.post('api/createQuestion',req)
   }
 }

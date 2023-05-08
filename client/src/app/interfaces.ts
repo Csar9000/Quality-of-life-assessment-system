@@ -40,4 +40,14 @@ export interface FactorOrigin{
 
 }
 
+export interface AnswerToSave{
+  textAnswer: string
+  factor: FactorToSave[]
+}
+
+export interface FactorToSave{
+  idFactor: number
+  weight: number
+}
+
   

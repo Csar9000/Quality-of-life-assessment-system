@@ -27,6 +27,7 @@ import { TokenInterceptor } from './shared/classes/token.interceptor';
 import { QuestionConstrutorComponent } from './question-construtor/question-construtor.component';
 import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
 import { ChooseFactorsComponent } from './choose-factors/choose-factors.component';
+import { AnswerElementComponent } from './answer-element/answer-element.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ChooseFactorsComponent } from './choose-factors/choose-factors.componen
     RegisterPageComponent,
     QuestionConstrutorComponent,
     QuestionSingleConstructorComponent,
-    ChooseFactorsComponent
+    ChooseFactorsComponent,
+    AnswerElementComponent
   ],
   imports: [
     BrowserModule,

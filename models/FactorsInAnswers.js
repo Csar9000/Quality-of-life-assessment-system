@@ -1,25 +1,25 @@
 const { DataTypes } = require('sequelize')
 const db = require('../db.js')
 
-const Questions = db.define("Questions",
+const FactorsInAnswers = db.define("public.FactorsInAnswers",
   // Описание таблиц
   {
-    idQuestion: {
+    idAnswer: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: false,
       allowNull: false
     },
-    textQuestion: {
-        type: DataTypes.TEXT,
+    idFactor: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: false,
         allowNull: false
     },
-    typeQuestion: {
+    weight: {
         type: DataTypes.INTEGER,
-      allowNull: false,
-    }
+        allowNull: false
+    },
     
   },
   // Опции
@@ -31,4 +31,4 @@ const Questions = db.define("Questions",
   }
 )
 
-module.exports = Questions
+module.exports = FactorsInAnswers
