@@ -28,6 +28,13 @@ import { QuestionConstrutorComponent } from './question-construtor/question-cons
 import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
 import { ChooseFactorsComponent } from './choose-factors/choose-factors.component';
 import { AnswerElementComponent } from './answer-element/answer-element.component';
+import { TestingDepartmentsListComponent } from './testing-departments-list/testing-departments-list.component';
+import { QuestionBankComponent } from './question-bank/question-bank.component';
+import {MatIconModule} from '@angular/material/icon';
+import { MatNativeDateModule } from '@angular/material/core'; 
+import {MatTableModule} from '@angular/material/table';
+import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +50,10 @@ import { AnswerElementComponent } from './answer-element/answer-element.componen
     QuestionConstrutorComponent,
     QuestionSingleConstructorComponent,
     ChooseFactorsComponent,
-    AnswerElementComponent
+    AnswerElementComponent,
+    TestingDepartmentsListComponent,
+    QuestionBankComponent,
+    QuestionsInTestComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +71,9 @@ import { AnswerElementComponent } from './answer-element/answer-element.componen
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatNativeDateModule,
+    MatTableModule
   ],
 
   providers: [

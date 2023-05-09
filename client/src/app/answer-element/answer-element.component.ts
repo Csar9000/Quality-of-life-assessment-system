@@ -1,7 +1,7 @@
 import { Component, ContentChild, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { AnswerToSave, FactorOrigin, FactorToSave } from '../interfaces';
-import { elementAt } from 'rxjs';
 import { testingService } from '../shared/services/testing.service';
+
 
 @Component({
   selector: 'app-answer-element',

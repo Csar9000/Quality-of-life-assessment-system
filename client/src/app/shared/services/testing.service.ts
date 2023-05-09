@@ -26,4 +26,8 @@ export class testingService {
     }
     return this.http.post('api/createQuestion',req)
   }
+
+  public getTestings(): any{
+    return this.http.get('api/getTestings')
+  }
 }

@@ -20,6 +20,15 @@ class AnswerQuestionController{
         res.json(data);
       });
     }
+
+
+    async getTestings(req, res){
+      var query = 'SELECT a."idTest", c."departmentNum", b."testName", a."dateNotificationDate", a."datePassingTest", b."testCreatingDate" FROM public."public.TestingDepartments" a LEFT JOIN public."public.Tests" b ON b."idTest" = a."idTest" LEFT JOIN public."public.Department" c ON c."idDepartment" = a."idDepartment"'
+      await db.query( query,{ raw: true,type: sequelize.QueryTypes.SELECT}).then(function(response) {
+        var data = JSON.stringify(response);
+        res.json(data);
+      });
+    }
     
 
     async getFactors(req,res){
@@ -31,7 +40,6 @@ class AnswerQuestionController{
       
       var answers = req.body.answers
         
-
       const result = await Question.create({
         textQuestion: req.body.textQuestion,
         typeQuestion: req.body.typeQuestion

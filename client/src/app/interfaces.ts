@@ -50,4 +50,13 @@ export interface FactorToSave{
   weight: number
 }
 
+export interface Testinglist {
+  idTest: number;
+  departmentNum: string;
+  testName: string;
+  dateNotificationDate: string;
+  datePassingTest: string;
+  testCreatingDate: string;
+}
+
   
