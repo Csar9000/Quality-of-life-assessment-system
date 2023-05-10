@@ -10,6 +10,7 @@ import { QuestionConstrutorComponent } from './question-construtor/question-cons
 import { TestingDepartmentsListComponent } from './testing-departments-list/testing-departments-list.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
 import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
+import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
       {path:'history', component: QuestionConstrutorComponent},
       {path:'testing-list', component: TestingDepartmentsListComponent},
       {path:'question-bank', component: QuestionBankComponent},
-      {path: 'test/:testId', component: QuestionsInTestComponent }
+      {path: 'test/:testId', component: QuestionsInTestComponent },
+      {path: 'edit/:questionId', component: QuestionSingleConstructorComponent }
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},
       // {path:'categories/new', component: CategoriesFormComponent},

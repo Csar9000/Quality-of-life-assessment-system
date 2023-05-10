@@ -13,6 +13,8 @@ router.get('/getQuestions', answersQuestions.getQuestions)
 router.get('/getFactors', answersQuestions.getFactors)
 router.post('/createQuestion', answersQuestions.createQuestion)
 router.get('/getTestings', answersQuestions.getTestings)
+router.post('/getQuestionsInTest', answersQuestions.getQuestionsInTest)
+router.post('/getQuestionData', answersQuestions.getQuestionData)
 
 
 module.exports = router

@@ -30,4 +30,18 @@ export class testingService {
   public getTestings(): any{
     return this.http.get('api/getTestings')
   }
+
+  public getQuestionsInTest(idQuestion: number): any{
+    var req ={
+      idQuestion: idQuestion
+    }
+    return this.http.post('api/getQuestionsInTest', req)
+  }
+
+  public getQuestionData(idQuestion: number): any{
+    var req ={
+      idQuestion: idQuestion
+    }
+    return this.http.post('api/getQuestionData', req)
+  }
 }

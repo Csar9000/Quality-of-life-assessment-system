@@ -1,1 +1,45 @@
-<p>questions-in-test works!</p>
+<table style="margin-top: 50px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> № </th>
+      <td mat-cell *matCellDef="let element; let i = index;"> {{i + 1}} </td>
+    </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="textQuestion">
+        <th mat-header-cell *matHeaderCellDef> Вопрос </th>
+        <td mat-cell *matCellDef="let element"> {{element.textQuestion}} </td>
+      </ng-container>
+
+            <!-- Weight Column -->
+      <ng-container matColumnDef="typeQuestion">
+        <th mat-header-cell *matHeaderCellDef> Тип вопроса </th>
+        <td mat-cell *matCellDef="let element"> {{element.typeQuestion}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef> Количество ответов </th>
+        <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="string_agg">
+        <th mat-header-cell *matHeaderCellDef> Факторы </th>
+        <td mat-cell *matCellDef="let element"> {{element.string_agg}} </td>
+      </ng-container>
+
+
+      
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="btn">
+        <th mat-header-cell *matHeaderCellDef> Факторы </th>
+        <td mat-cell *matCellDef="let element"> 
+            <button (click)="changeQuestion(element.idQuestion)" mat-raised-button color="primary">Изменить</button>
+            <button  mat-raised-button color="primary">Удалить</button>
+        </td>
+      </ng-container>
+  
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    </table>

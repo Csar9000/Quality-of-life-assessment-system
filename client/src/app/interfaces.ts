@@ -35,9 +35,7 @@ export interface Factor {
 
 export interface FactorOrigin{
   idFactor: number
-  mainFactor: string
   nameFactor: string
-
 }
 
 export interface AnswerToSave{
@@ -57,6 +55,26 @@ export interface Testinglist {
   dateNotificationDate: string;
   datePassingTest: string;
   testCreatingDate: string;
+}
+
+export interface QuestionInTest {
+  idQuestion: number;
+  textQuestion: string;
+  typeQuestion: number;
+  count: number;
+  string_agg: string;
+}
+
+
+export interface QuestionData {
+  idQuestion: number;
+  textQuestion: string;
+  typeQuestion: number;
+  idAnswer: number;
+  idFactor: number;
+  weight: number;
+  textAnswer: string;
+  nameFactor: string;
 }
 
   

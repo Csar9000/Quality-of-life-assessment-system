@@ -1,12 +1,15 @@
-import { Component, ComponentFactoryResolver, ContentChildren, ElementRef, Inject, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { Component,  ContentChildren, ElementRef, Inject, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
 import { MatFormField } from '@angular/material/form-field';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { Answer, AnswerToSave, FactorOrigin,FactorToSave, User } from '../interfaces';
+import { testingService } from '../shared/services/testing.service';
+import { Answer, AnswerToSave, FactorOrigin,FactorToSave, QuestionData, User } from '../interfaces';
 import { ChooseFactorsComponent } from '../choose-factors/choose-factors.component';
 import { type } from 'os';
 import { AnswerElementComponent } from '../answer-element/answer-element.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Json } from 'sequelize/types/utils';
 
 
 @Component({
@@ -19,6 +22,9 @@ export class QuestionSingleConstructorComponent {
   arr: any = []
   factors: FactorOrigin[] = []
 
+  questionData: QuestionData[] = []
+  
+
   textQuestion: string = ''
   typeQuestion: number = 1
 
@@ -28,16 +34,36 @@ export class QuestionSingleConstructorComponent {
   @ViewChild('textQuestion') qText: ElementRef | undefined
   
   answers: AnswerToSave[] | undefined
+  idQuestion?: number | undefined
 
 
-
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private testingService: testingService, private router:Router, private activatedRoute: ActivatedRoute, ) {
     this.arr.push(this.counter)
+
+    this.activatedRoute.params.subscribe((params: any) => 
+    this.idQuestion = Number(params['questionId'])
+    
+
+    );
+    if(this.idQuestion!=null){
+     this.testingService.getQuestionData(this.idQuestion).subscribe((data: any)=>{
+       this.questionData = JSON.parse(JSON.stringify(data))
+       //var arr = this.questionData[0].string_agg.split(', ')
+        this.questionData.forEach(element => {
+          this.factors.push({
+            idFactor: element.idFactor,
+            nameFactor: element.nameFactor
+          })
+        });
+       //this.childAnswerElement!!.factors = 
+       
+     })
+     console.log(this.factors)
+    }
   }
 
   saveQuestion(){
     this.childAnswerElement?.saveQuestion()
-
   }
 
   openDialog(): void {

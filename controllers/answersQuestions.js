@@ -36,6 +36,38 @@ class AnswerQuestionController{
       res.json(factors);
     }
 
+    async getQuestionsInTest(req,res){
+      var query = `SELECT b."idQuestion", b."textQuestion", b."typeQuestion", count(distinct(d."idAnswer")), STRING_AGG(distinct(e."nameFactor"), ', ') FROM
+        public."public.QuestionsInTests" a
+      INNER JOIN public."Questions" b ON b."idQuestion" = a."idQuestion"
+      INNER JOIN public."Answers" c ON c."idQuestion" = a."idQuestion"
+      INNER JOIN public."public.FactorsInAnswers" d ON c."idAnswer" = d."idAnswer"
+      INNER JOIN public."public.Factors" e ON d."idFactor" = e."idFactor"
+      where a."idTest" = ${Number(req.body.idQuestion)}
+      group by  b."idQuestion", b."textQuestion"`
+      await db.query( query,{ raw: true,type: sequelize.QueryTypes.SELECT}).then(function(response) {
+        var data = JSON.stringify(response);
+        res.json(response);
+      });
+
+    }
+
+
+    async getQuestionData(req,res){
+      var query = `SELECT a."idQuestion", a."textQuestion", a."typeQuestion",c.weight,c."idFactor", b."idAnswer", b."textAnswer", d."nameFactor"
+      FROM
+        public."Questions" a
+      INNER JOIN public."Answers" b ON a."idQuestion" = b."idQuestion"
+      INNER JOIN public."public.FactorsInAnswers" c ON c."idAnswer" = b."idAnswer"
+      INNER JOIN public."public.Factors" d ON d."idFactor" = c."idFactor"
+      where a."idQuestion" = ${Number(req.body.idQuestion)}
+      group by  a."idQuestion", b."idAnswer", b."textAnswer",c.weight, d."nameFactor",c."idFactor"`
+    await db.query( query,{ raw: true,type: sequelize.QueryTypes.SELECT}).then(function(response) {
+      var data = JSON.stringify(response);
+      res.json(response);
+    });
+    }
+
     async createQuestion(req, res){
       
       var answers = req.body.answers

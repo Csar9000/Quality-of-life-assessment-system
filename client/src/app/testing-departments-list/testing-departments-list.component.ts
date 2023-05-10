@@ -23,15 +23,15 @@ export class TestingDepartmentsListComponent {
     this.testingService.getTestings().subscribe((data: any)=>{
      
       this.ELEMENT_DATA = JSON.parse(data)
-      console.log(this.ELEMENT_DATA)
+     // console.log(this.ELEMENT_DATA)
       this.dataSource = this.ELEMENT_DATA;
     })
-    this.displayedColumns = ['departmentNum', 'testName', 'dateNotificationDate', 'datePassingTest', 'testCreatingDate'];
+    this.displayedColumns = ['id','departmentNum', 'testName', 'dateNotificationDate', 'datePassingTest', 'testCreatingDate'];
     
   }
 
-  getTestQuestions(){
-    this.router.navigate(["/test", 1])
+  getTestQuestions(rowId: number){
+    this.router.navigate(["/test", rowId])
   }
   
 

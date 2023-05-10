@@ -1,0 +1,11 @@
+.mat-raised-button ~ .mat-raised-button {
+    margin-right: 50px;
+  }
+
+  
+.mat-button {
+    &:not(:first-child) {
+        margin-left: 1em;
+      }
+    }
+  
