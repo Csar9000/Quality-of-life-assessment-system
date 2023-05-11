@@ -1,17 +1,17 @@
-<div #el *ngFor="let i of arr">
+<div #el *ngFor="let j of arr; let t = index;">
     <div #elem class="row" style="justify-content:center">
         <div class="col-md-1" style="align-items: center; display: flex;" >
-                <label for="title" style="margin:auto;">{{i}}</label>
+                <label for="title" style="margin:auto;">{{t}}</label>
             </div>
             <div class="col-md-6" style="align-items: center; display: flex;">
-                <input #answerText  matInput  placeholder="Текст ответа"  name="fname"  required>
+                <input #answerText  matInput  placeholder="Текст ответа"   name="fname" value={{j.textAnswer}} required>
             </div>
             <div class="col-md-5" style="align-items: center; display: flex;">
                 <div class="wrapper">
-                    <mat-list *ngFor="let i of factors" class="full-width"style="align-items: center;">
+                    <mat-list *ngFor="let i of factors; let d = index" class="full-width"style="align-items: center;">
                         <div class="box" >
                             <mat-list-item #w style="height: 30px; font: size 14px;"> {{i.nameFactor}} =
-                                <input id="{{i.idFactor}}" #weight matInput style="height: 20px;width: 30px;font: size 10px;" name="fname"  required>
+                                <input id="{{i.idFactor}}" #weight matInput style="height: 20px;width: 30px;font: size 10px;" name="fname"   required>
                             </mat-list-item>
                         </div>
                         

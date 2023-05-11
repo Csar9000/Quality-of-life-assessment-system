@@ -13,14 +13,14 @@ export class QuestionsInTestComponent {
   ELEMENT_DATA!: QuestionInTest[]
   dataSource: any
 
-  idQuestion?: number | undefined
+  idTest?: number | undefined
 
   constructor(private testingService: testingService, private router:Router, private activatedRoute: ActivatedRoute){
       this.activatedRoute.params.subscribe((params: any) => 
-    this.idQuestion = Number(params['testId'])
+    this.idTest = Number(params['testId'])
     );
     //console.log(this.idQuestion)
-    this.testingService.getQuestionsInTest(this.idQuestion!!).subscribe((data: any)=>{
+    this.testingService.getQuestionsInTest(this.idTest!!).subscribe((data: any)=>{
      
       this.ELEMENT_DATA = JSON.parse(JSON.stringify(data))
      //console.log(this.ELEMENT_DATA)
@@ -31,7 +31,10 @@ export class QuestionsInTestComponent {
   }
 
   changeQuestion(idQuestion: any){
-    this.router.navigate(["/edit", idQuestion])
-    
+    this.router.navigate(["/edit", idQuestion], { queryParams: { origin: 'question-list' } })
+  }
+
+  createQuestion(){
+    this.router.navigate(["/constructor"], { queryParams: { origin: 'question-create-add-in-test', idTest: this.idTest } })
   }
 }

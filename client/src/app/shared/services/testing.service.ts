@@ -18,13 +18,25 @@ export class testingService {
     return this.http.get('api/getFactors')
   }
 
-  public createQuestion(textQuestion: string, typeQuestion: number, answers:AnswerToSave[]): any{
+  public createQuestion(textQuestion: string, typeQuestion: number, answers:AnswerToSave[], save:number, idTest:number): any{
     var req ={
+      answers: answers,
+      textQuestion: textQuestion,
+      typeQuestion: typeQuestion,
+      save: save,
+      idTest: idTest
+    }
+    return this.http.post('api/createQuestion',req)
+  }
+
+  public updateQuestion(idQuestion:number, textQuestion: string, typeQuestion: number, answers:AnswerToSave[]): any{
+    var req ={
+      idQuestion: idQuestion,
       answers: answers,
       textQuestion: textQuestion,
       typeQuestion: typeQuestion
     }
-    return this.http.post('api/createQuestion',req)
+    return this.http.post('api/updateQuestion',req)
   }
 
   public getTestings(): any{

@@ -1,4 +1,4 @@
-import { Component,  ContentChildren, ElementRef, Inject, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { Component,  ContentChildren, ElementRef, Inject, QueryList, Renderer2, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material/dialog';
 import { MatFormField } from '@angular/material/form-field';
@@ -36,34 +36,77 @@ export class QuestionSingleConstructorComponent {
   answers: AnswerToSave[] | undefined
   idQuestion?: number | undefined
 
+  a: any = []
 
-  constructor(public dialog: MatDialog, private testingService: testingService, private router:Router, private activatedRoute: ActivatedRoute, ) {
+  uniqueAnswers: any = []
+
+  arr2: any[] = []
+
+  weight: any[] = []
+
+  text=''
+
+  origin=''
+
+  idTest?: number
+
+
+  constructor(public dialog: MatDialog, private testingService: testingService, private router:Router, private activatedRoute: ActivatedRoute, private renderer: Renderer2) {
     this.arr.push(this.counter)
 
-    this.activatedRoute.params.subscribe((params: any) => 
+    this.activatedRoute.params.subscribe((params: any) =>  { 
     this.idQuestion = Number(params['questionId'])
     
-
-    );
+  });
+  this.activatedRoute.queryParams.subscribe(
+    (queryParam: any) => {
+      this.origin = queryParam.origin
+      this.idTest = Number(queryParam.idTest)
+    }
+);
     if(this.idQuestion!=null){
      this.testingService.getQuestionData(this.idQuestion).subscribe((data: any)=>{
        this.questionData = JSON.parse(JSON.stringify(data))
        //var arr = this.questionData[0].string_agg.split(', ')
         this.questionData.forEach(element => {
-          this.factors.push({
-            idFactor: element.idFactor,
-            nameFactor: element.nameFactor
-          })
+          if (!this.a.includes(element.idFactor)){
+            this.a.push(element.idFactor)
+            this.factors.push({
+              idFactor: element.idFactor,
+              nameFactor: element.nameFactor
+            })
+          }
+          if (!this.uniqueAnswers.includes(element.idAnswer)){
+            this.uniqueAnswers.push(element.idAnswer)
+            this.arr2.push(element)
+          }
+          this.weight.push(element.weight)
+          this.text = element.textQuestion
+
         });
-       //this.childAnswerElement!!.factors = 
+        
+       this.childAnswerElement!!.factors = this.factors
+       this.childAnswerElement!!.arr = this.arr2
+       this.childAnswerElement!!.weights = this.weight
        
      })
-     console.log(this.factors)
+     
+     //
     }
   }
 
   saveQuestion(){
-    this.childAnswerElement?.saveQuestion()
+    if(this.origin=='question-list'){
+      this.childAnswerElement!!.textQuestion = this.qText?.nativeElement.value
+      this.childAnswerElement?.updateQuestion(this.idQuestion, this.idTest!)
+    }else if(this.origin=='question-create-add-in-test'){
+      this.childAnswerElement!!.textQuestion = this.qText?.nativeElement.value
+      this.childAnswerElement?.saveQuestion(1, this.idTest!)
+    }else{
+      this.childAnswerElement!!.textQuestion = this.qText?.nativeElement.value
+      this.childAnswerElement?.saveQuestion(0, this.idTest!)
+    }
+
   }
 
   openDialog(): void {

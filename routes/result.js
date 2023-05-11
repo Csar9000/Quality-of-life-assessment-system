@@ -12,6 +12,7 @@ router.get('/getQuestions', answersQuestions.getQuestions)
 
 router.get('/getFactors', answersQuestions.getFactors)
 router.post('/createQuestion', answersQuestions.createQuestion)
+router.post('/updateQuestion', answersQuestions.updateQuestion)
 router.get('/getTestings', answersQuestions.getTestings)
 router.post('/getQuestionsInTest', answersQuestions.getQuestionsInTest)
 router.post('/getQuestionData', answersQuestions.getQuestionData)

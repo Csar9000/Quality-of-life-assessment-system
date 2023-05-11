@@ -31,7 +31,7 @@ export class TestingDepartmentsListComponent {
   }
 
   getTestQuestions(rowId: number){
-    this.router.navigate(["/test", rowId])
+    this.router.navigate(["/test", rowId] )
   }
   
 

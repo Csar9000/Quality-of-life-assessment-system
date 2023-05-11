@@ -6,7 +6,7 @@ class ResultController{
     async createResult(req, res){
       
       const result = await Result.create({
-          codeUser: 12,
+          codeUser: 15,
           idAnswer: req.body.idAnswer,
           idFactor: req.body.idFactor,
           idTesting: 1

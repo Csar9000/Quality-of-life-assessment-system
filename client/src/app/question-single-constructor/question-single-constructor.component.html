@@ -4,7 +4,7 @@
     <form class="my-form wrapper">
        <mat-form-field class="full-width">
               <mat-label>Текст вопроса</mat-label>
-              <input #textQuestion matInput  placeholder="Текст вопроса"   required>
+              <input #textQuestion matInput  placeholder="Текст вопроса" value="{{text}}"  required>
         </mat-form-field>
             <mat-label class="full-width">Выбор факторов</mat-label>
             <button mat-button (click)="openDialog()"  color="primary" >Выбрать</button>

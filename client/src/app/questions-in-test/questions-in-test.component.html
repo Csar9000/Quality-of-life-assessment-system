@@ -1,3 +1,7 @@
+
+<button (click)="createQuestion()" class="btn btn-info mb-4 mt-2 mr-3" >Создать вопрос</button>
+<button  class="btn btn-info mb-4 mt-2">Выбрать вопрос</button>
+
 <table style="margin-top: 50px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   
     <ng-container matColumnDef="id">
@@ -34,8 +38,8 @@
       <ng-container matColumnDef="btn">
         <th mat-header-cell *matHeaderCellDef> Факторы </th>
         <td mat-cell *matCellDef="let element"> 
-            <button (click)="changeQuestion(element.idQuestion)" mat-raised-button color="primary">Изменить</button>
-            <button  mat-raised-button color="primary">Удалить</button>
+            <button (click)="changeQuestion(element.idQuestion)" class="btn btn-info mb-2 mt-2 mr-3">Изменить</button>
+            <button  class="btn btn-info mb-2 mt-2 mr-3" >Удалить</button>
         </td>
       </ng-container>
   

@@ -68,11 +68,17 @@ class AnswerQuestionController{
     });
     }
 
-    async createQuestion(req, res){
-      
+    async updateQuestion(req, res){
+
+      var idQuestion = Number(req.body.idQuestion)
+      var query = `DELETE FROM public."Questions"
+      WHERE "idQuestion" = ${idQuestion};`
       var answers = req.body.answers
+      await db.query( query,{ raw: true,type: sequelize.QueryTypes.DELETE})
+      
         
       const result = await Question.create({
+        idQuestion: idQuestion,
         textQuestion: req.body.textQuestion,
         typeQuestion: req.body.typeQuestion
       }).then(question=>{
@@ -96,6 +102,69 @@ class AnswerQuestionController{
         })
       })
       res.json(result)
+    }
+
+    async createQuestion(req, res){
+      
+      var answers = req.body.answers
+      var save = Number(req.body.save)
+      var idTest = Number(req.body.idTest)
+      
+      if(save == 0){
+        const result = await Question.create({
+          textQuestion: req.body.textQuestion,
+          typeQuestion: req.body.typeQuestion
+        }).then(question=>{
+           answers.forEach(element => {
+            Answers.create({
+              idQuestion: question.idQuestion,
+              textAnswer: element.textAnswer
+          }).then(answer=>{
+            var el = JSON.stringify(element.factor)
+            var e = JSON.parse(el)
+            e.forEach(element => {
+              FactorInAnswer.create({
+                idAnswer: answer.idAnswer,
+                idFactor: element.idFactor,
+                weight: element.weight
+              })
+            });
+            
+          })
+          
+          })
+        })
+        res.json(result)
+      }else{
+        var savedIdQuestion
+        const result = await Question.create({
+          textQuestion: req.body.textQuestion,
+          typeQuestion: req.body.typeQuestion
+        }).then(question=>{
+          savedIdQuestion = question.idQuestion
+           answers.forEach(element => {
+            Answers.create({
+              idQuestion: question.idQuestion,
+              textAnswer: element.textAnswer
+          }).then(answer=>{
+            var el = JSON.stringify(element.factor)
+            var e = JSON.parse(el)
+            e.forEach(element => {
+              FactorInAnswer.create({
+                idAnswer: answer.idAnswer,
+                idFactor: element.idFactor,
+                weight: element.weight
+              })
+            });
+            
+          })
+          
+          })
+        })
+        db.query(`INSERT INTO public."public.QuestionsInTests"("idQuestion", "idTest") VALUES (${savedIdQuestion}, ${idTest});`)
+
+      }
+      
     }
 }
 
