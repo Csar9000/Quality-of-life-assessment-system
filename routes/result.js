@@ -17,5 +17,6 @@ router.get('/getTestings', answersQuestions.getTestings)
 router.post('/getQuestionsInTest', answersQuestions.getQuestionsInTest)
 router.post('/getQuestionData', answersQuestions.getQuestionData)
 
+router.post('/addQuestionToTest', answersQuestions.addQuestionToTest)
 
 module.exports = router

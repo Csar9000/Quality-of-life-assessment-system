@@ -90,8 +90,7 @@ export class QuestionSingleConstructorComponent {
        this.childAnswerElement!!.weights = this.weight
        
      })
-     
-     //
+
     }
   }
 

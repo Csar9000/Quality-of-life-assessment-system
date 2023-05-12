@@ -29,7 +29,8 @@ const routes: Routes = [
       {path:'testing-list', component: TestingDepartmentsListComponent},
       {path:'question-bank', component: QuestionBankComponent},
       {path: 'test/:testId', component: QuestionsInTestComponent },
-      {path: 'edit/:questionId', component: QuestionSingleConstructorComponent }
+      {path: 'edit/:questionId', component: QuestionSingleConstructorComponent },
+      {path: 'questionBank/:idTest', component: QuestionBankComponent }
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},
       // {path:'categories/new', component: CategoriesFormComponent},

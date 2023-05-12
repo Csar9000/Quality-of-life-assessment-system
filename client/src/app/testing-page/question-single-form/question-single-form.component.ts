@@ -20,10 +20,7 @@ export class QuestionSingleFormComponent implements AfterViewInit{
 
   @ViewChildren("myname") elRef?: QueryList<ElementRef>;
   
-  constructor(private resultService: ResultService,private http: HttpClient){
-    
-   
-  }
+  constructor(private resultService: ResultService,private http: HttpClient){}
 
   ngAfterViewInit(): void {
 

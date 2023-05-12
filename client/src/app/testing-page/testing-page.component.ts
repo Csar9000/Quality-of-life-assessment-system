@@ -24,7 +24,6 @@ export class TestingPageComponent {
   multipleQuestion:Question[] = []
 
   d: any
-  accounts!: Root
   
 
   @ViewChild(QuestionSingleFormComponent)
@@ -43,6 +42,7 @@ export class TestingPageComponent {
        
         this.categories$ = JSON.parse(data);
        
+
         this.categories$.questions.forEach(d=>{
           //console.log(d)
           switch(d.typeQuestion){

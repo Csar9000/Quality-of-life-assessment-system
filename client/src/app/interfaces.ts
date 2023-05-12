@@ -30,6 +30,8 @@ export interface Answer {
 
 export interface Factor {
   idFactor: number
+  weight: number
+  nameFactor: string
 }
 
 

@@ -33,6 +33,7 @@ import { QuestionBankComponent } from './question-bank/question-bank.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core'; 
 import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
 
 
@@ -59,6 +60,7 @@ import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.
     BrowserModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatExpansionModule,
     MatDialogModule,
     MatDatepickerModule,
     MatInputModule,

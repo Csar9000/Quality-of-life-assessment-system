@@ -33,6 +33,9 @@ export class QuestionsInTestComponent {
   changeQuestion(idQuestion: any){
     this.router.navigate(["/edit", idQuestion], { queryParams: { origin: 'question-list' } })
   }
+  addQuestion(){
+    this.router.navigate(["/questionBank", this.idTest])
+  }
 
   createQuestion(){
     this.router.navigate(["/constructor"], { queryParams: { origin: 'question-create-add-in-test', idTest: this.idTest } })

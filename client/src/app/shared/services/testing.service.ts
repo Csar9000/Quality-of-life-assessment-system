@@ -43,6 +43,15 @@ export class testingService {
     return this.http.get('api/getTestings')
   }
 
+  public addQuestionToTest(idQuestion: number, idTest:number): any{
+    var req ={
+      idQuestion: idQuestion,
+      idTest: idTest
+    }
+    return this.http.post('api/addQuestionToTest', req)
+  }
+
+
   public getQuestionsInTest(idQuestion: number): any{
     var req ={
       idQuestion: idQuestion

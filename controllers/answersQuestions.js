@@ -21,6 +21,24 @@ class AnswerQuestionController{
       });
     }
 
+    async addQuestionToTest(req, res){
+      var idQuestion = Number(req.body.idQuestion)
+      var idTest = Number(req.body.idTest)
+      
+      await db.query(`INSERT INTO public."public.QuestionsInTests"("idQuestion", "idTest") VALUES (${idQuestion}, ${idTest});`,{ raw: true,type: sequelize.QueryTypes.INSERT}).then(function(response) {
+        res.json(response);
+      });
+    }
+
+    async getQuestionsByIdTesting(req, res){
+      await db.query('select getquestionsanswersByIdTesting(2);',{plain: true,raw: true}).then(function(response) {
+        var data = JSON.parse(JSON.stringify(response));
+        data = data[ 'getquestionsanswersbyidtesting' ];
+        data = JSON.stringify(data);
+        res.json(data);
+      });
+    }
+
 
     async getTestings(req, res){
       var query = 'SELECT a."idTest", c."departmentNum", b."testName", a."dateNotificationDate", a."datePassingTest", b."testCreatingDate" FROM public."public.TestingDepartments" a LEFT JOIN public."public.Tests" b ON b."idTest" = a."idTest" LEFT JOIN public."public.Department" c ON c."idDepartment" = a."idDepartment"'
