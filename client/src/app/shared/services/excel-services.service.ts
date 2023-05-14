@@ -9,9 +9,10 @@ const EXCEL_EXTENSION = '.xlsx';
 })
 export class ExcelServicesService {
   constructor(private http: HttpClient) { }
-  public exportAsExcelFile(json: any[],excelFileName: string): void {
-    console.log(json)
+  public exportAsExcelFile(json: never[],excelFileName: string): void {
+   // console.log(json)
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);
+   // console.log(worksheet)
     const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
     const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
     this.saveAsExcelFile(excelBuffer, excelFileName);

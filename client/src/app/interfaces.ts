@@ -52,6 +52,7 @@ export interface FactorToSave{
 
 export interface Testinglist {
   idTest: number;
+  idDepartment: number;
   departmentNum: string;
   testName: string;
   dateNotificationDate: string;
@@ -65,6 +66,13 @@ export interface QuestionInTest {
   typeQuestion: number;
   count: number;
   string_agg: string;
+}
+
+export interface PassingTestOrder {
+  codeUser: number;
+  departmentNum: number;
+  passing_check: string;
+  testName: string;
 }
 
 

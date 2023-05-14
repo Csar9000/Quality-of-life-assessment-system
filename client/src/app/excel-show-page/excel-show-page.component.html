@@ -1,31 +1,58 @@
 <h3>Результаты тестирования</h3>
 
-<button (click)="exportAsXLSX()" class="btn btn-info mb-4 mt-2">Скачать отчёт</button>
-
-<table class="centered">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Возрастная категория</th>
-      <th>Стаж работы</th>
-      <th>Должность</th>
-      <th>Код сотрудника</th>
-      <th>Пол</th>
-      <th>Лояльность</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let item of excel; index as i">
-      <td>{{item['id']}}</td>
-      <td>{{item['stage']}}</td>
-      <td>{{item['work_stage']}}</td>
-      <td>{{item['post']}}</td>
-      <td>{{item['user_code']}}</td>
-      <td>{{item['gender']}}</td>
-      <td>{{item['loyal']}}</td>
-    </tr>
-  </tbody>
+<h3> Тестирование цехов</h3>
+<input  matInput  placeholder="Поиск по названию тестирования"  name="fname">
+<input  matInput  placeholder="Фильтр по цехам"  name="fname">
+<mat-label>Выберите дату создания теста</mat-label>
+<mat-form-field appearance="fill" style="margin-left: 30px;">
+  
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM.DD.YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
 
-</table>
+<table style="margin-top: 50px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> № </th>
+    <td mat-cell *matCellDef="let element; let i = index;"> {{i + 1}} </td>
+  </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="testName">
+      <th mat-header-cell *matHeaderCellDef> Название теста </th>
+      <td mat-cell *matCellDef="let element"> {{element.testName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="departmentNum">
+      <th mat-header-cell *matHeaderCellDef> Название цеха </th>
+      <td mat-cell *matCellDef="let element"> {{element.departmentNum}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="dateNotificationDate">
+      <th mat-header-cell *matHeaderCellDef> Дата начала тестирования </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateNotificationDate}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="datePassingTest">
+      <th mat-header-cell *matHeaderCellDef> Дата окончания тестирования </th>
+      <td mat-cell *matCellDef="let element"> {{element.datePassingTest}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Действия </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button  class="btn btn-info mb-2 mt-2 mr-3">Подробнее</button>
+          <button (click)="exportAsXLSX(element.idTest, element.departmentNum)" class="btn btn-info mb-2 mt-2 mr-3">Скачать отчёт</button>
+      </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr   mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+  </table>
+
+      

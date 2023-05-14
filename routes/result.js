@@ -7,7 +7,7 @@ const answersQuestions = require('../controllers/answersQuestions')
 
 router.post('/createResult',resultController.createResult)
 router.get('/result', passport.authenticate('jwt', {session:false}),resultController.getResults)
-router.get('/getResult',resultController.getRes)
+router.post('/getResult',resultController.getRes)
 router.get('/getQuestions', answersQuestions.getQuestions)
 
 router.get('/getFactors', answersQuestions.getFactors)

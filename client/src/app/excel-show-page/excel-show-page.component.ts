@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ExcelServicesService } from '../shared/services/excel-services.service';
+import { Testinglist } from '../interfaces';
+import { testingService } from '../shared/services/testing.service';
+import { ResultService } from '../shared/services/result.service';
 
 @Component({
   selector: 'app-excel-show-page',
@@ -10,29 +13,44 @@ import { ExcelServicesService } from '../shared/services/excel-services.service'
 })
 export class ExcelShowPageComponent {
   title = 'excel-upload-download';
-  
+  displayedColumns: string[] =[]
+  ELEMENT_DATA!: Testinglist[]
+  dataSource: any
+
+  idTest: any
+
   ngOnInit(){
   }
   
    excel=[];
-   headers:string[] | undefined;
    
-    constructor(private excelService:ExcelServicesService,private http: HttpClient){
+    constructor(private excelService:ExcelServicesService, private testingService: testingService,private http: HttpClient, private ResultService: ResultService){
       
-      this.getJSON().subscribe((data: never[]) => {
-        data.forEach(row => {
-          this.excel.push(row);
-        })       
-      });
+      this.testingService.getTestings().subscribe((data: any)=>{
+        this.ELEMENT_DATA = JSON.parse(data)
+       // console.log(this.ELEMENT_DATA)
+        this.dataSource = this.ELEMENT_DATA;
+      })
+      this.displayedColumns = ['id','departmentNum', 'testName', 'dateNotificationDate', 'datePassingTest', 'actions'];
     }
+
+
+  
+
     
-    exportAsXLSX():void {
+    exportAsXLSX(idTest: number, departmentNum: string):void {
+      this.excel = []
+
+      this.ResultService.getResultsByIdTest(idTest).subscribe((data: never[]) => {
+        if(data!=null){
+          data.forEach(row => {
+            this.excel.push(row);
+          })       
+        }
+        this.excelService.exportAsExcelFile(this.excel, 'sample');
+      });
       
-       this.excelService.exportAsExcelFile(this.excel, 'sample');
+      
     }
-    public getJSON(): Observable<any> {
-      let data$ = this.http.get('api/getResult')
-      this.headers = Object.keys(data$)
-      return data$;
-    }
+
 }

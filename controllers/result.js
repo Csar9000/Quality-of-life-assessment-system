@@ -18,14 +18,38 @@ class ResultController{
         res.json(result)
     }
 
-    async getRes(req,res){
-     await db.query('call get_temp_result_table(1);');
-     await db.query('SELECT "main_function"(1);',{plain: true,raw: true}).then(function(response) {
+   async getRes(req,res){
+    var idTest = Number(req.body.idTest)
+   // db.query(`call get_temp_result_table(${idTest});`);
+    db.query(`SELECT "test_func"(${idTest});`,{plain: true,raw: true}).then(function(response) {
         var data = JSON.parse(JSON.stringify(response));
         //console.log(Object.keys(data['main_function']))
-        //console.log(Object.entries(data))
-        res.json(data[ 'main_function' ]);
+        //console.log(data)
+        res.json(data[ 'test_func' ]);
       });
+    }
+
+    async getPassingTestOrderByIdTestAndIdDepartment(req,res){
+      var idTest = Number(req.body.idTest)
+      var idDepartment = Number(req.body.idDepartment)
+      var query = `SELECT distinct(a."codeUser"), case when 
+      (a."codeUser" NOT IN (
+          SELECT "codeUser"
+          FROM public."public.Result" d
+        )
+      ) THEN 'Не пройден'
+      when (a."codeUser"  IN (
+          SELECT "codeUser"
+          FROM public."public.Result" d
+        )
+      ) THEN 'Пройден'
+      else 'ХЗ ваще'
+             end as passing_check,
+           b."departmentNum",
+           e."testName"
+      FROM
+        public."public.User" a, public."public.Department" b, public."public.TestingDepartments" c, public."public.Tests" e
+        where a."idDepartment" = b."idDepartment" and b."idDepartment" = c."idDepartment" and c."idTest" = ${idTest} and c."idTest" = e."idTest" and b."idDepartment" = ${idDepartment}`
     }
 }
 module.exports = new ResultController()

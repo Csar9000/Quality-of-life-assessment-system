@@ -21,6 +21,16 @@ class AnswerQuestionController{
       });
     }
 
+    async getQuestionsByIdTesting(req, res){
+      var idTest = Number(req.body.idTest)
+      await db.query(`select getquestionsanswersByIdTesting(${idTest});`,{plain: true,raw: true}).then(function(response) {
+        var data = JSON.parse(JSON.stringify(response));
+        data = data[ 'getquestionsanswersbyidtesting' ];
+        data = JSON.stringify(data);
+        res.json(data);
+      });
+    }
+
     async addQuestionToTest(req, res){
       var idQuestion = Number(req.body.idQuestion)
       var idTest = Number(req.body.idTest)
@@ -30,25 +40,14 @@ class AnswerQuestionController{
       });
     }
 
-    async getQuestionsByIdTesting(req, res){
-      await db.query('select getquestionsanswersByIdTesting(2);',{plain: true,raw: true}).then(function(response) {
-        var data = JSON.parse(JSON.stringify(response));
-        data = data[ 'getquestionsanswersbyidtesting' ];
-        data = JSON.stringify(data);
-        res.json(data);
-      });
-    }
-
-
     async getTestings(req, res){
-      var query = 'SELECT a."idTest", c."departmentNum", b."testName", a."dateNotificationDate", a."datePassingTest", b."testCreatingDate" FROM public."public.TestingDepartments" a LEFT JOIN public."public.Tests" b ON b."idTest" = a."idTest" LEFT JOIN public."public.Department" c ON c."idDepartment" = a."idDepartment"'
+      var query = 'SELECT a."idTest",c."idDepartment", c."departmentNum", b."testName", a."dateNotificationDate", a."datePassingTest", b."testCreatingDate" FROM public."public.TestingDepartments" a LEFT JOIN public."public.Tests" b ON b."idTest" = a."idTest" LEFT JOIN public."public.Department" c ON c."idDepartment" = a."idDepartment"'
       await db.query( query,{ raw: true,type: sequelize.QueryTypes.SELECT}).then(function(response) {
         var data = JSON.stringify(response);
         res.json(data);
       });
     }
     
-
     async getFactors(req,res){
       const factors = await Factor.findAll()
       res.json(factors);

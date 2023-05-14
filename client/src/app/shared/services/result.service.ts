@@ -18,10 +18,12 @@ export class ResultService{
     create(idFactor:number,idAnswer:number):Observable<Result>{
         return this.http.post<Result>('/api/createResult', {"idAnswer": idFactor, "idFactor": idAnswer});
     }
-    
 
-    getExcel():void{
-        this.http.get('/api/createExcel');
+    getResultsByIdTest(idTest: number): Observable<any>{
+        var req={
+            idTest: idTest
+          }
+        return this.http.post('api/getResult', req)
     }
 
 

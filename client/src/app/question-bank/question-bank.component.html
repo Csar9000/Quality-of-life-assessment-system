@@ -22,15 +22,15 @@
     <ng-container matColumnDef="answers">
       <th mat-header-cell *matHeaderCellDef> Ответы </th>
       <mat-cell *matCellDef="let element">
-        <div >
-          <ng-container  *ngFor="let item of element.answers">
+        <div style="min-width:200px; max-width: 450px;">
+          <ng-container  *ngFor="let item of element.answers" >
             <mat-accordion>
                 <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
                     {{item.textAnswer}}
                 </mat-panel-title>
-                <mat-panel-description>
+                <mat-panel-description style="width: 100px;">
                   Факторы
                 </mat-panel-description>
               </mat-expansion-panel-header>
