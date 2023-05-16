@@ -24,10 +24,8 @@ export class QuestionBankComponent implements OnInit {
   constructor(private testingService: testingService, private router:Router, private activatedRoute: ActivatedRoute){
     this.activatedRoute.params.subscribe((params: any) => 
   this.idTest = Number(params['idTest'])
- 
-  );}
 
-  
+  );}
 
   ngOnInit(){
     this.displayedColumns = ['id','textQuestion','answers', 'factors'];
@@ -41,7 +39,7 @@ export class QuestionBankComponent implements OnInit {
         this.dataSource = this.ELEMENT_DATA
     })
 
-    console.log(this.ELEMENT_DATA)
+   // console.log(this.ELEMENT_DATA)
   }
 
 
@@ -49,5 +47,8 @@ export class QuestionBankComponent implements OnInit {
     var id = Number(idQuestion)
     this.testingService.addQuestionToTest(id, this.idTest!).subscribe()
   }
+
+
+
 
 }

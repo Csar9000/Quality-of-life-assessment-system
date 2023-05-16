@@ -63,7 +63,6 @@ class AnswerQuestionController{
       where a."idTest" = ${Number(req.body.idQuestion)}
       group by  b."idQuestion", b."textQuestion"`
       await db.query( query,{ raw: true,type: sequelize.QueryTypes.SELECT}).then(function(response) {
-        var data = JSON.stringify(response);
         res.json(response);
       });
 

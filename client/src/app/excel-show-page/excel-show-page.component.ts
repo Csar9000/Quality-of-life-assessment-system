@@ -5,6 +5,7 @@ import { ExcelServicesService } from '../shared/services/excel-services.service'
 import { Testinglist } from '../interfaces';
 import { testingService } from '../shared/services/testing.service';
 import { ResultService } from '../shared/services/result.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-excel-show-page',
@@ -24,7 +25,11 @@ export class ExcelShowPageComponent {
   
    excel=[];
    
-    constructor(private excelService:ExcelServicesService, private testingService: testingService,private http: HttpClient, private ResultService: ResultService){
+    constructor(private excelService:ExcelServicesService,
+       private testingService: testingService,
+       private http: HttpClient,
+       private ResultService: ResultService,
+       private router: Router){
       
       this.testingService.getTestings().subscribe((data: any)=>{
         this.ELEMENT_DATA = JSON.parse(data)
@@ -34,10 +39,6 @@ export class ExcelShowPageComponent {
       this.displayedColumns = ['id','departmentNum', 'testName', 'dateNotificationDate', 'datePassingTest', 'actions'];
     }
 
-
-  
-
-    
     exportAsXLSX(idTest: number, departmentNum: string):void {
       this.excel = []
 
@@ -49,8 +50,10 @@ export class ExcelShowPageComponent {
         }
         this.excelService.exportAsExcelFile(this.excel, 'sample');
       });
-      
-      
+    }
+
+    checkPassTest(idTest:number, idDepartment:number){
+      this.router.navigate(["/passing-check"], { queryParams: { idTest: idTest, idDepartment: idDepartment } })
     }
 
 }

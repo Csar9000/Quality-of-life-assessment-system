@@ -1,6 +1,5 @@
-<h3>Результаты тестирования</h3>
 
-<h3> Тестирование цехов</h3>
+<h2>  Результаты тестирования</h2>
 <input  matInput  placeholder="Поиск по названию тестирования"  name="fname">
 <input  matInput  placeholder="Фильтр по цехам"  name="fname">
 <mat-label>Выберите дату создания теста</mat-label>
@@ -46,7 +45,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Действия </th>
         <td mat-cell *matCellDef="let element"> 
-          <button  class="btn btn-info mb-2 mt-2 mr-3">Подробнее</button>
+          <button (click)="checkPassTest(element.idTest, element.idDepartment)" class="btn btn-info mb-2 mt-2 mr-3">Подробнее</button>
           <button (click)="exportAsXLSX(element.idTest, element.departmentNum)" class="btn btn-info mb-2 mt-2 mr-3">Скачать отчёт</button>
       </td>
       </ng-container>

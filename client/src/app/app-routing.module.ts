@@ -11,6 +11,7 @@ import { TestingDepartmentsListComponent } from './testing-departments-list/test
 import { QuestionBankComponent } from './question-bank/question-bank.component';
 import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
 import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
+import { PassingTestCheckComponent } from './passing-test-check/passing-test-check.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
       {path:'question-bank', component: QuestionBankComponent},
       {path: 'test/:testId', component: QuestionsInTestComponent },
       {path: 'edit/:questionId', component: QuestionSingleConstructorComponent },
-      {path: 'questionBank/:idTest', component: QuestionBankComponent }
+      {path: 'questionBank/:idTest', component: QuestionBankComponent },
+      {path: 'passing-check', component: PassingTestCheckComponent }
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},
       // {path:'categories/new', component: CategoriesFormComponent},

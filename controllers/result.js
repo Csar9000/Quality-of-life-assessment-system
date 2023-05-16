@@ -50,6 +50,15 @@ class ResultController{
       FROM
         public."public.User" a, public."public.Department" b, public."public.TestingDepartments" c, public."public.Tests" e
         where a."idDepartment" = b."idDepartment" and b."idDepartment" = c."idDepartment" and c."idTest" = ${idTest} and c."idTest" = e."idTest" and b."idDepartment" = ${idDepartment}`
+
+
+        
+        db.query(query,{type: sequelize.QueryTypes.SELECT}).then(function(response) {
+          console.log(response)
+          res.json(response);
+        });
     }
+
+
 }
 module.exports = new ResultController()

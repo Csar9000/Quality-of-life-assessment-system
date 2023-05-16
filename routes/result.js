@@ -19,4 +19,6 @@ router.post('/getQuestionData', answersQuestions.getQuestionData)
 
 router.post('/addQuestionToTest', answersQuestions.addQuestionToTest)
 
+router.post('/getPassingTestOrderByIdTestAndIdDepartment', resultController.getPassingTestOrderByIdTestAndIdDepartment)
+
 module.exports = router

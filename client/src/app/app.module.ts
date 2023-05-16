@@ -35,6 +35,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
+import { PassingTestCheckComponent } from './passing-test-check/passing-test-check.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.
     TestingDepartmentsListComponent,
     QuestionBankComponent,
     QuestionsInTestComponent,
+    PassingTestCheckComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,5 +26,13 @@ export class ResultService{
         return this.http.post('api/getResult', req)
     }
 
+    getPassingTestOrder(idTest: number, idDepartment:number): Observable<any>{
+        var req={
+            idTest: idTest,
+            idDepartment: idDepartment
+          }
+        return this.http.post('api/getPassingTestOrderByIdTestAndIdDepartment', req)
+    }
+
 
 }
