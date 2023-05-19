@@ -15,3 +15,36 @@
   .demo-row-is-clicked {
     font-weight: bold;
   }
+
+  
+mat-form-field {
+  font-size: 14px;
+  margin: 0;
+}
+
+.example-container mat-form-field + mat-form-field {
+  margin-left: 10px;
+}
+
+.example-container mat-form-field {
+  width: 320px;
+
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 12px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.example-form-fields {
+  display: flex;
+  align-items: flex-start;
+}
+

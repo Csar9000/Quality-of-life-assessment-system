@@ -1,15 +1,44 @@
 
 <h2>  Результаты тестирования</h2>
-<input  matInput  placeholder="Поиск по названию тестирования"  name="fname">
-<input  matInput  placeholder="Фильтр по цехам"  name="fname">
-<mat-label>Выберите дату создания теста</mat-label>
-<mat-form-field appearance="fill" style="margin-left: 30px;">
+
+  <form [formGroup]="searchForm" class="example-container">
+    <mat-form-field  appearance="outline">
+      <mat-label>Название теста</mat-label>
+      <input matInput type="text"
+             aria-label="Departure station"
+             matInput
+             formControlName="testName"
+             (keyup)="applyFilter()"
+             style="height:fit-content"
+      >
+    </mat-form-field>
   
-  <input matInput [matDatepicker]="picker">
-  <mat-hint>MM.DD.YYYY</mat-hint>
-  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Цех</mat-label>
+      <input type="text"
+             aria-label="Arrival station"
+             matInput
+             formControlName="arrivalStation"
+             (keyup)="applyFilter()"
+             style="height:fit-content"
+      >
+    </mat-form-field>
+  
+    <mat-form-field  appearance="outline" >
+      <mat-label>Дата начала тестирования</mat-label>
+      <input matInput
+             formControlName="departureDate"
+             [matDatepicker]="picker"
+             (dateInput)="applyFilter()"
+             >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  
+  </form>
+ 
+
+
 
 
 <table style="margin-top: 50px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">

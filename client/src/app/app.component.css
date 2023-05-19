@@ -1,0 +1,7 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #80cbc4;
+    margin: 0;
+  }
+  ::ng-deep.mat-form-field-wrapper{
+    padding: 0;
+  }

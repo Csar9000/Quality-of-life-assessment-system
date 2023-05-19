@@ -55,9 +55,9 @@ export interface Testinglist {
   idDepartment: number;
   departmentNum: string;
   testName: string;
-  dateNotificationDate: string;
+  dateNotificationDate: Date;
   datePassingTest: string;
-  testCreatingDate: string;
+  testCreatingDate: Date
 }
 
 export interface QuestionInTest {
