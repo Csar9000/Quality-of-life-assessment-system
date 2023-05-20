@@ -1,8 +1,30 @@
 <h3> Банк вопросов</h3>
-<input  matInput  placeholder="Поиск по тексту вопроса"  name="fname">
-<input  matInput  placeholder="Поиск по факторам"  name="fname">
-  
 
+<form [formGroup]="searchForm" class="example-container">
+  <mat-form-field  appearance="outline">
+    <mat-label>Поиск по тексту вопроса</mat-label>
+    <input matInput type="text"
+           aria-label="Вопрос"
+           matInput
+           formControlName="questionName"
+           (keyup)="applyFilter()"
+           style="height:fit-content;width:fit-content"
+    >
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Поиск по факторам</mat-label>
+    <input type="text"
+           aria-label="Фактор"
+           matInput
+           formControlName="factorName"
+           (keyup)="applyFilter()"
+           style="height:fit-content"
+    >
+  </mat-form-field>
+
+</form>
 
 
 
