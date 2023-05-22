@@ -52,11 +52,10 @@ export class QuestionSingleFormComponent implements AfterViewInit{
     this.elRef?.forEach((el: ElementRef) => {
       if(el.nativeElement.checked){
         var str = el.nativeElement.id
-        
+        console.log(str)
         var splitted = str.split("-");
         for (let i = 1; i < splitted.length; i++) {
           this.resultService.create(Number(splitted[0]),Number(splitted[i])).subscribe()
-          console.log(Number(splitted[0]),Number(splitted[i]))
           
         }
         //console.log(splitted)

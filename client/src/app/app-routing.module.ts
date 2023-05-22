@@ -12,6 +12,7 @@ import { QuestionBankComponent } from './question-bank/question-bank.component';
 import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
 import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
 import { PassingTestCheckComponent } from './passing-test-check/passing-test-check.component';
+import { PersonalOrderComponent } from './personal-order/personal-order.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
       {path: 'test/:testId', component: QuestionsInTestComponent },
       {path: 'edit/:questionId', component: QuestionSingleConstructorComponent },
       {path: 'questionBank/:idTest', component: QuestionBankComponent },
-      {path: 'passing-check', component: PassingTestCheckComponent }
+      {path: 'passing-check', component: PassingTestCheckComponent },
+      {path: 'personalOrder', component: PersonalOrderComponent}
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},
       // {path:'categories/new', component: CategoriesFormComponent},

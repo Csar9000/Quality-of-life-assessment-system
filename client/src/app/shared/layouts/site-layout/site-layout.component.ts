@@ -14,7 +14,8 @@ export class SiteLayoutComponent {
      {url:'/results',name:'Результаты'},
      {url:'/constructor',name:'Создание вопроса'},
      {url:'/testing-list', name: 'Тестирования цехов'},
-     {url:'/question-bank', name: 'Банк вопросов'}
+     {url:'/question-bank', name: 'Банк вопросов'},
+     {url:'/personalOrder', name: 'TT'}
     // {url:'/order',name:'Добавить заказ'},
     // {url:'/categories',name:'Ассортимент'}
   ]

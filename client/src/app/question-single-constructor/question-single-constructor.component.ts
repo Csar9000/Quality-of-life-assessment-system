@@ -5,7 +5,7 @@ import { MatFormField } from '@angular/material/form-field';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { testingService } from '../shared/services/testing.service';
 import { Answer, AnswerToSave, FactorOrigin,FactorToSave, QuestionData, User } from '../interfaces';
-import { ChooseFactorsComponent } from '../choose-factors/choose-factors.component';
+import { ChooseFactorsComponent } from '../shared/modals/choose-factors/choose-factors.component';
 import { type } from 'os';
 import { AnswerElementComponent } from '../answer-element/answer-element.component';
 import { ActivatedRoute, Router } from '@angular/router';

@@ -26,7 +26,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { TokenInterceptor } from './shared/classes/token.interceptor';
 import { QuestionConstrutorComponent } from './question-construtor/question-construtor.component';
 import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
-import { ChooseFactorsComponent } from './choose-factors/choose-factors.component';
+import { ChooseFactorsComponent } from './shared/modals/choose-factors/choose-factors.component';
 import { AnswerElementComponent } from './answer-element/answer-element.component';
 import { TestingDepartmentsListComponent } from './testing-departments-list/testing-departments-list.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
@@ -36,6 +36,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.component';
 import { PassingTestCheckComponent } from './passing-test-check/passing-test-check.component';
+import { EmployeeOverviewComponent } from './shared/layouts/employee-overview/employee-overview.component';
+import { ModalCreateFactorComponent } from './shared/modals/modal-create-factor/modal-create-factor.component';
+import { ModalCreateTestingComponent } from './shared/modals/modal-create-testing/modal-create-testing.component';
+import { PersonalOrderComponent } from './personal-order/personal-order.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -48,6 +53,7 @@ import { PassingTestCheckComponent } from './passing-test-check/passing-test-che
     QuestionScaleFormComponent,
     ExcelShowPageComponent,
     LopinPageComponent,
+
     RegisterPageComponent,
     QuestionConstrutorComponent,
     QuestionSingleConstructorComponent,
@@ -57,9 +63,14 @@ import { PassingTestCheckComponent } from './passing-test-check/passing-test-che
     QuestionBankComponent,
     QuestionsInTestComponent,
     PassingTestCheckComponent,
+    EmployeeOverviewComponent,
+    ModalCreateFactorComponent,
+    ModalCreateTestingComponent,
+    PersonalOrderComponent,
   ],
   imports: [
     BrowserModule,
+    NgChartsModule,
     MatFormFieldModule,
     MatButtonModule,
     MatExpansionModule,

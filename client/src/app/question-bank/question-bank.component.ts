@@ -62,31 +62,18 @@ export class QuestionBankComponent implements OnInit {
   getFilterPredicate() {
     return (row: Question, filters: string) => {
       const matchFilter = [];
-      // split string per '$' to array
       const filterArray = filters.split('$');
       const nameQuestion = filterArray[0];
       const nameFactor = filterArray[1];
 
-
-      
-
-      // Fetch data from row
       const columnNameQuestion = row.textQuestion;
      // const columnNameFactor = row2.nameFactor
-
-    
 
       // verify fetching data by our searching values
       const customFilterTN = columnNameQuestion.toLowerCase().includes(nameQuestion);
       //const customFilterAS = columnNameFactor.toLowerCase().includes(nameFactor);
-
-      // push boolean values into array
       matchFilter.push(customFilterTN);
      // matchFilter.push(customFilterAS);
-
-      // return true if all values in array is true
-      // else return false
-
       return matchFilter.every(Boolean);
     };
 }
@@ -103,16 +90,8 @@ export class QuestionBankComponent implements OnInit {
     console.log(filterValue)
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
-
-
-
   addQuestiontoTest(idQuestion: any){
     var id = Number(idQuestion)
     this.testingService.addQuestionToTest(id, this.idTest!).subscribe()
   }
-
-
-
-
 }

@@ -60,7 +60,7 @@ class AnswerQuestionController{
       INNER JOIN public."Answers" c ON c."idQuestion" = a."idQuestion"
       INNER JOIN public."public.FactorsInAnswers" d ON c."idAnswer" = d."idAnswer"
       INNER JOIN public."public.Factors" e ON d."idFactor" = e."idFactor"
-      where a."idTest" = ${Number(req.body.idQuestion)}
+      where a."idTest" = ${Number(req.body.idTest)}
       group by  b."idQuestion", b."textQuestion"`
       await db.query( query,{ raw: true,type: sequelize.QueryTypes.SELECT}).then(function(response) {
         res.json(response);

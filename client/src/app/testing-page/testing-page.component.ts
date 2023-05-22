@@ -37,12 +37,10 @@ export class TestingPageComponent {
               private router:Router,private route: ActivatedRoute,private http: HttpClient){   
   }
   ngOnInit() {
-    this.testingService.getQuestions().subscribe((data: any)=>
+    this.testingService.getQuestionsByIdTesting(1).subscribe((data: any)=>
       {
        
         this.categories$ = JSON.parse(data);
-       
-
         this.categories$.questions.forEach(d=>{
           //console.log(d)
           switch(d.typeQuestion){

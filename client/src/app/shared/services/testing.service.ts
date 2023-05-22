@@ -14,6 +14,13 @@ export class testingService {
     return this.http.get('api/getQuestions')
   }
 
+  public getQuestionsByIdTesting(idTest: number){
+    var req ={
+      idTest: idTest
+    }
+    return this.http.post('api/getQuestionsByIdTesting', req)
+  }
+
   public getFactors():any{
     return this.http.get('api/getFactors')
   }
@@ -51,10 +58,12 @@ export class testingService {
     return this.http.post('api/addQuestionToTest', req)
   }
 
+  //public getQuestionsByIdTesting(idTest)
 
-  public getQuestionsInTest(idQuestion: number): any{
+
+  public getQuestionsInTest(idTest: number): any{
     var req ={
-      idQuestion: idQuestion
+      idTest: idTest
     }
     return this.http.post('api/getQuestionsInTest', req)
   }

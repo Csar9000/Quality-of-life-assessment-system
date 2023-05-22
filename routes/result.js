@@ -17,6 +17,8 @@ router.get('/getTestings', answersQuestions.getTestings)
 router.post('/getQuestionsInTest', answersQuestions.getQuestionsInTest)
 router.post('/getQuestionData', answersQuestions.getQuestionData)
 
+router.post('/getQuestionsByIdTesting', answersQuestions.getQuestionsByIdTesting)
+
 router.post('/addQuestionToTest', answersQuestions.addQuestionToTest)
 
 router.post('/getPassingTestOrderByIdTestAndIdDepartment', resultController.getPassingTestOrderByIdTestAndIdDepartment)

@@ -1,7 +1,7 @@
 import { Renderer2, Component, ElementRef, Inject, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FactorOrigin, User } from '../interfaces';
-import { testingService } from '../shared/services/testing.service';
+import { FactorOrigin, User } from '../../../interfaces';
+import { testingService } from '../../services/testing.service';
 
 @Component({
   selector: 'app-choose-factors',
