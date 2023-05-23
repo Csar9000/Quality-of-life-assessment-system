@@ -23,4 +23,6 @@ router.post('/addQuestionToTest', answersQuestions.addQuestionToTest)
 
 router.post('/getPassingTestOrderByIdTestAndIdDepartment', resultController.getPassingTestOrderByIdTestAndIdDepartment)
 
+router.post('/getPersonalOrder', resultController.getPersonalOrder)
+
 module.exports = router

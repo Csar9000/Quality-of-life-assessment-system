@@ -34,5 +34,12 @@ export class ResultService{
         return this.http.post('api/getPassingTestOrderByIdTestAndIdDepartment', req)
     }
 
+    getPersonalOrder(codeUser: number){
+        var req  = {
+            codeUser: codeUser
+        }
+        return this.http.post('api/getPersonalOrder', req)
+    }
+
 
 }

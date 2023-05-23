@@ -59,6 +59,22 @@ class ResultController{
         });
     }
 
+    async getPersonalOrder(req, res){
+      var codeUser = Number(req.body.codeUser)
+
+      var query = `SELECT c."mainFactor", round(sum(b.weight)*100.0/sum(case when b.weight >= 0 then b.weight end),2) as sum
+      FROM
+        public."public.Result" a
+      LEFT JOIN public."public.FactorsInAnswers" b ON b."idFactor" = a."idFactor" and b."idAnswer"= a."idAnswer"
+      LEFT JOIN public."public.Factors" c ON b."idFactor" = c."idFactor" 
+      where a."codeUser"= ${codeUser}
+      GROUP BY c."mainFactor"`
+      db.query(query,{type: sequelize.QueryTypes.SELECT}).then(function(response) {
+        res.json(response);
+      });
+
+    }
+
 
 }
 module.exports = new ResultController()
