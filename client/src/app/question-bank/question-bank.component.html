@@ -12,18 +12,6 @@
     >
   </mat-form-field>
 
-
-  <mat-form-field appearance="outline">
-    <mat-label>Поиск по факторам</mat-label>
-    <input type="text"
-           aria-label="Фактор"
-           matInput
-           formControlName="factorName"
-           (keyup)="applyFilter()"
-           style="height:fit-content"
-    >
-  </mat-form-field>
-
 </form>
 
 
@@ -44,17 +32,25 @@
     <ng-container matColumnDef="answers">
       <th mat-header-cell *matHeaderCellDef> Ответы </th>
       <mat-cell *matCellDef="let element">
-        <div style="min-width:200px; max-width: 450px;">
+        <div style="min-width:200px; max-width: 650px;">
           <ng-container  *ngFor="let item of element.answers" >
             <mat-accordion>
-                <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
+                <mat-expansion-panel style="margin-bottom: 5px;">
+            <mat-expansion-panel-header  >
+              <div class="row" >
+                <div class="col-9">
+                  <mat-panel-description style="width: 500px;">
                     {{item.textAnswer}}
-                </mat-panel-title>
-                <mat-panel-description style="width: 100px;">
-                  Факторы
                 </mat-panel-description>
+                </div>
+                <div class="col-2" style="position: absolute; right: 0px;">
+                  <mat-panel-description style="width: 20px;">
+                    Факторы
+                  </mat-panel-description>
+                </div>
+              </div>
+                
+                
               </mat-expansion-panel-header>
               <ng-container  *ngFor="let j of item.factor">
                 <div class="row" >
@@ -86,5 +82,5 @@
   
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr  mat-row *matRowDef="let row; columns: displayedColumns;" ></tr>
+    <tr  mat-row *matRowDef="let row; columns: displayedColumns;" style="margin-bottom: 15px;" ></tr>
   </table>

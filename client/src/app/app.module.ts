@@ -41,6 +41,8 @@ import { ModalCreateFactorComponent } from './shared/modals/modal-create-factor/
 import { ModalCreateTestingComponent } from './shared/modals/modal-create-testing/modal-create-testing.component';
 import { PersonalOrderComponent } from './personal-order/personal-order.component';
 import { NgChartsModule } from 'ng2-charts';
+import {MatSelectModule} from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 
 @NgModule({
@@ -53,7 +55,6 @@ import { NgChartsModule } from 'ng2-charts';
     QuestionScaleFormComponent,
     ExcelShowPageComponent,
     LopinPageComponent,
-
     RegisterPageComponent,
     QuestionConstrutorComponent,
     QuestionSingleConstructorComponent,
@@ -70,6 +71,8 @@ import { NgChartsModule } from 'ng2-charts';
   ],
   imports: [
     BrowserModule,
+    NgxMatSelectSearchModule,
+    MatSelectModule,
     NgChartsModule,
     MatFormFieldModule,
     MatButtonModule,

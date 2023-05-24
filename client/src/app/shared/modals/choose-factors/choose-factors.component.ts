@@ -32,7 +32,7 @@ export class ChooseFactorsComponent implements OnInit{
 
   
   onNoClick(): void {
-    console.log(typeof(this.checkBox))
+    //console.log(typeof(this.checkBox))
     this.chosenFactorsRef?.forEach((el: ElementRef) => {
       if(el.nativeElement.checked){
         this.checkBox.push(Number(el.nativeElement.id))       

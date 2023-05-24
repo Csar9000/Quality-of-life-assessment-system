@@ -1,41 +1,48 @@
 
 <h2>Тестирование цехов</h2>
 
-<form [formGroup]="searchForm" class="example-container">
-  <mat-form-field  appearance="outline">
-    <mat-label>Название теста</mat-label>
-    <input matInput type="text"
-           aria-label="Название теста"
-           matInput
-           formControlName="testName"
-           (keyup)="applyFilter()"
-           style="height:fit-content"
-    >
-  </mat-form-field>
+<div class="row">
+  <div class="col-10">
+    <form [formGroup]="searchForm" class="example-container">
+      <mat-form-field  appearance="outline">
+        <mat-label>Название теста</mat-label>
+        <input matInput type="text"
+               aria-label="Название теста"
+               matInput
+               formControlName="testName"
+               (keyup)="applyFilter()"
+               style="height:fit-content"
+        >
+      </mat-form-field>
+    
+      <mat-form-field appearance="outline">
+        <mat-label>Цех</mat-label>
+        <input type="text"
+               aria-label="Цех"
+               matInput
+               formControlName="arrivalStation"
+               (keyup)="applyFilter()"
+               style="height:fit-content"
+        >
+      </mat-form-field>
+      
+      <mat-form-field  appearance="outline" style="width: 300px;" >
+        <mat-label>Дата начала тестирования</mat-label>
+        <input matInput
+               formControlName="departureDate"
+               [matDatepicker]="picker"
+               (dateInput)="applyFilter()"
+               >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="col-2">
+    <button (click)="openCreateTestDialog()" class="btn btn-info mb-2 mt-2 mr-3">Создать тестирование</button>
+  </div>
+</div>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Цех</mat-label>
-    <input type="text"
-           aria-label="Цех"
-           matInput
-           formControlName="arrivalStation"
-           (keyup)="applyFilter()"
-           style="height:fit-content"
-    >
-  </mat-form-field>
-
-  <mat-form-field  appearance="outline" >
-    <mat-label>Дата начала тестирования</mat-label>
-    <input matInput
-           formControlName="departureDate"
-           [matDatepicker]="picker"
-           (dateInput)="applyFilter()"
-           >
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-</form>
 
 
 <table style="margin-top: 50px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">

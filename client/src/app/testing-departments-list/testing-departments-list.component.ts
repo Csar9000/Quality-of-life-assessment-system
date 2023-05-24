@@ -5,6 +5,8 @@ import { testingService } from '../shared/services/testing.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalCreateTestingComponent } from '../shared/modals/modal-create-testing/modal-create-testing.component';
 
 
 
@@ -27,7 +29,7 @@ export class TestingDepartmentsListComponent {
 
   clickedRows = new Set<Testinglist>();
 
-  constructor(private testingService: testingService, private router:Router){
+  constructor(private testingService: testingService, private router:Router, public dialog: MatDialog){
     this.searchFormInit();
     this.testingService.getTestings().subscribe((data: any)=>{
       
@@ -38,6 +40,20 @@ export class TestingDepartmentsListComponent {
     })
     this.displayedColumns = ['id','departmentNum', 'testName', 'dateNotificationDate', 'datePassingTest', 'testCreatingDate'];
     
+  }
+
+  openCreateTestDialog(): void {
+    const dialogRef = this.dialog.open(ModalCreateTestingComponent, {
+      //data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    
+      // this.factors = result
+      // this.childAnswerElement!!.textQuestion = this.qText?.nativeElement.value
+      // this.childAnswerElement!!.factors = result
+
+    });
   }
 
   getTestQuestions(rowId: number){
@@ -60,16 +76,12 @@ export class TestingDepartmentsListComponent {
       const departureDate = filterArray[0];
       const testName = filterArray[1];
       const arrivalStation = filterArray[2];
-
-
       const matchFilter = [];
-
+      
       // Fetch data from row
       const columnDepartureDate = new Date(row.dateNotificationDate);
       const columnTestName = row.testName;
       const columnArrivalStation = row.departmentNum;
-
-    
 
       // verify fetching data by our searching values
       const customFilterTN = columnTestName.toLowerCase().includes(testName);
