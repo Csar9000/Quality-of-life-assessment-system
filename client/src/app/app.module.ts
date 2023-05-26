@@ -85,6 +85,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatListModule,
     MatCardModule,
     MatTabsModule,
+    MatIconModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,

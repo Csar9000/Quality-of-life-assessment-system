@@ -13,6 +13,7 @@ import { QuestionsInTestComponent } from './questions-in-test/questions-in-test.
 import { QuestionSingleConstructorComponent } from './question-single-constructor/question-single-constructor.component';
 import { PassingTestCheckComponent } from './passing-test-check/passing-test-check.component';
 import { PersonalOrderComponent } from './personal-order/personal-order.component';
+import { ModalCreateFactorComponent } from './shared/modals/modal-create-factor/modal-create-factor.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
       {path: 'edit/:questionId', component: QuestionSingleConstructorComponent },
       {path: 'questionBank/:idTest', component: QuestionBankComponent },
       {path: 'passing-check', component: PassingTestCheckComponent },
-      {path: 'personalOrder', component: PersonalOrderComponent}
+      {path: 'personalOrder', component: PersonalOrderComponent},
+      {path: 'create-factor', component: ModalCreateFactorComponent}
       // {path:'order', component: OrderPageComponent},
       // {path:'categories', component: CategoriesPageComponent},
       // {path:'categories/new', component: CategoriesFormComponent},

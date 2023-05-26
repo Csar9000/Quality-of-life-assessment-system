@@ -31,6 +31,14 @@ class AnswerQuestionController{
       });
     }
 
+    async getDepartments(req, res){
+      var query = 'SELECT "idDepartment","departmentNum" FROM public."public.Department";'
+      await db.query(query ,{raw: true, type: sequelize.QueryTypes.SELECT}).then(function(response) {
+        var data = JSON.parse(JSON.stringify(response));
+        res.json(data);
+      });
+    }
+
     async addQuestionToTest(req, res){
       var idQuestion = Number(req.body.idQuestion)
       var idTest = Number(req.body.idTest)

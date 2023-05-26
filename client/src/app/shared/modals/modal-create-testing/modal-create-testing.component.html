@@ -4,7 +4,7 @@
     <div class="d-flex align-items-center justify-content-center">
         <div class="wrapper " >
           
-          <form [formGroup]="searchForm" class="example-container" >
+          <form [formGroup]="testingForm" class="example-container" >
             <div class="box">
                 <mat-form-field style="width: 300px;"  appearance="outline">
                     <mat-label>Название теста</mat-label>
@@ -18,13 +18,13 @@
             </div>
             <div class="box">
                 <mat-form-field style="width: 300px;">
-                    <mat-select [formControl]="bankCtrl" placeholder="Bank" >
+                    <mat-select [formControl]="bankCtrl" placeholder="Цех" #singleSelect>
                       <mat-option style="margin-left: 10px;">
                         <ngx-mat-select-search placeholderLabel="Цех"  noEntriesFoundLabel="Совпадений не найдено" [formControl]="bankFilterCtrl"></ngx-mat-select-search>
                       </mat-option>
                 
-                      <mat-option *ngFor="let bank of filteredBanks | async" [value]="bank">
-                        {{bank.name}}
+                      <mat-option *ngFor="let department of filteredDepartments | async" [value]="department">
+                        {{department.departmentNum}}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
@@ -35,10 +35,10 @@
                     <mat-label>Дата начала тестирования</mat-label>
                     <input matInput
                            formControlName="testingBeginDate"
-                           [matDatepicker]="picker"
+                           [matDatepicker]="picker1"
                            >
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
                   </mat-form-field>
             </div>
 
@@ -47,10 +47,10 @@
                     <mat-label>Дата окончания тестирования</mat-label>
                     <input matInput
                            formControlName="testingEndDate"
-                           [matDatepicker]="picker"
+                           [matDatepicker]="picker2"
                            >
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
                   </mat-form-field>
             </div>
             

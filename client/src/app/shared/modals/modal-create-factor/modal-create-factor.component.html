@@ -1,1 +1,44 @@
-<p>modal-create-factor works!</p>
+<div class="dialog" >
+    <div mat-dialog-content style="padding-bottom: 0px;" >
+    <p style="font-size: 20px;">Создание фактора</p>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="wrapper " >
+          
+          <form [formGroup]="factorForm" class="example-container" >
+            <div class="box">
+                <mat-form-field style="width: 300px;"  appearance="outline">
+                    <mat-label>Название фактора</mat-label>
+                    <input matInput type="text"
+                           aria-label="Название теста"
+                           matInput
+                           formControlName="testName"
+                           style="height:fit-content"
+                    >
+                  </mat-form-field>
+            </div>
+            <div class="box">
+                <mat-form-field style="width: 300px;">
+                    <mat-label>Выберите главный фактор</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let j of mainFactors" [value]="j" >{{j}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+            </div>
+            
+          </form>
+          <div class="box">
+            <div mat-dialog-actions>
+                <div class="col-6">
+                    <button mat-button>Отмена</button>
+                </div>
+                <div class="col-6">
+                    <button mat-button  cdkFocusInitial>Создать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+          
+      </div>
+    </div>
+
+</div>

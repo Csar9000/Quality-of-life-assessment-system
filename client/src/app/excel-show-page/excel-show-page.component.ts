@@ -25,16 +25,10 @@ export class ExcelShowPageComponent {
   name: any
   department: any
   excel: never[] =[];
-
-
-
   idTest: any
-
   ngOnInit() {
-
   }
-   
-   
+
     constructor(private excelService:ExcelServicesService,
        private testingService: testingService,
        private http: HttpClient,
@@ -44,6 +38,7 @@ export class ExcelShowPageComponent {
       
       this.testingService.getTestings().subscribe((data: any)=>{
         this.ELEMENT_DATA = JSON.parse(data)
+        
        // console.log(this.ELEMENT_DATA)
        this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
        
@@ -112,14 +107,15 @@ export class ExcelShowPageComponent {
 
     exportAsXLSX(idTest: number, departmentNum: string):void {
       this.excel = []
-
+      
       this.ResultService.getResultsByIdTest(idTest).subscribe((data: never[]) => {
         if(data!=null){
+          //console.log(data)
           data.forEach(row => {
             this.excel.push(row);
           })       
         }
-        this.excelService.exportAsExcelFile(this.excel, 'sample');
+        this.excelService.exportAsExcelFile(this.excel, departmentNum);
       });
     }
 

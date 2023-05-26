@@ -25,4 +25,6 @@ router.post('/getPassingTestOrderByIdTestAndIdDepartment', resultController.getP
 
 router.post('/getPersonalOrder', resultController.getPersonalOrder)
 
+router.get('/getDepartments', answersQuestions.getDepartments)
+
 module.exports = router

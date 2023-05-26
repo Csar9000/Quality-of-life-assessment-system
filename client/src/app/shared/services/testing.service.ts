@@ -25,6 +25,10 @@ export class testingService {
     return this.http.get('api/getFactors')
   }
 
+  public getDepartments():any{
+    return this.http.get('api/getDepartments')
+  }
+
   public createQuestion(textQuestion: string, typeQuestion: number, answers:AnswerToSave[], save:number, idTest:number): any{
     var req ={
       answers: answers,
