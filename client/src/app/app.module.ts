@@ -43,6 +43,7 @@ import { PersonalOrderComponent } from './personal-order/personal-order.componen
 import { NgChartsModule } from 'ng2-charts';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     ModalCreateFactorComponent,
     ModalCreateTestingComponent,
     PersonalOrderComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
