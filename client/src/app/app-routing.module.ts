@@ -25,7 +25,6 @@ const routes: Routes = [
   },
   {
     path: '', component: SiteLayoutComponent, canActivate:[AuthGuard], children:[
-      {path:'testing', component: TestingPageComponent},
       {path:'results', component: ExcelShowPageComponent},
       {path:'constructor', component: QuestionConstrutorComponent},
       {path:'history', component: QuestionConstrutorComponent},
@@ -35,12 +34,12 @@ const routes: Routes = [
       {path: 'edit/:questionId', component: QuestionSingleConstructorComponent },
       {path: 'questionBank/:idTest', component: QuestionBankComponent },
       {path: 'passing-check', component: PassingTestCheckComponent },
-      {path: 'personalOrder', component: PersonalOrderComponent},
       {path: 'create-factor', component: ModalCreateFactorComponent}
-      // {path:'order', component: OrderPageComponent},
-      // {path:'categories', component: CategoriesPageComponent},
-      // {path:'categories/new', component: CategoriesFormComponent},
-      // {path:'categories/:id', component: CategoriesFormComponent}
+  ]
+  },
+  {
+    path: 'testing', component: TestingPageComponent, canActivate:[AuthGuard], children:[
+      {path: 'personalOrder', component: PersonalOrderComponent}
   ]
   }
 
