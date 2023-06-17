@@ -18,25 +18,25 @@ export class QuestionMultipleFormComponent {
   constructor(private resultService: ResultService){}
   
   async getResult(){
-    let ob$
-    this.elRef?.forEach((el: ElementRef) => {
-      if(el.nativeElement.checked){
-        var str = el.nativeElement.id
-        //console.log(el.nativeElement.id)
-        var splitted = str.split("-", 2); 
-        //console.log(splitted)
+    // let ob$
+    // this.elRef?.forEach((el: ElementRef) => {
+    //   if(el.nativeElement.checked){
+    //     var str = el.nativeElement.id
+    //     //console.log(el.nativeElement.id)
+    //     var splitted = str.split("-", 2); 
+    //     //console.log(splitted)
 
-        this.resultService.create(Number(splitted[0]),Number(splitted[1]))
-        .subscribe({
-          next: (v) => console.log(v),
-        error: (e) => console.error(e),
-        complete: () => console.info('complete') 
-        }
+    //     this.resultService.create(Number(splitted[0]),Number(splitted[1]))
+    //     .subscribe({
+    //       next: (v) => console.log(v),
+    //     error: (e) => console.error(e),
+    //     complete: () => console.info('complete') 
+    //     }
           
-        );
-      }
+    //     );
+    //   }
       
-    });
+    // });
   }
 
 

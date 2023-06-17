@@ -14,6 +14,7 @@ import { QuestionSingleConstructorComponent } from './question-single-constructo
 import { PassingTestCheckComponent } from './passing-test-check/passing-test-check.component';
 import { PersonalOrderComponent } from './personal-order/personal-order.component';
 import { ModalCreateFactorComponent } from './shared/modals/modal-create-factor/modal-create-factor.component';
+import { EmployeeOverviewComponent } from './shared/layouts/employee-overview/employee-overview.component';
 
 const routes: Routes = [
   {
@@ -38,8 +39,9 @@ const routes: Routes = [
   ]
   },
   {
-    path: 'testing', component: TestingPageComponent, canActivate:[AuthGuard], children:[
-      {path: 'personalOrder', component: PersonalOrderComponent}
+    path: '', component: EmployeeOverviewComponent, canActivate:[AuthGuard], children:[
+      {path: 'personalOrder', component: PersonalOrderComponent},
+      {path: 'testing', component: TestingPageComponent}
   ]
   }
 

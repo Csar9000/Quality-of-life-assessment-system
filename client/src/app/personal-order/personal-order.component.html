@@ -1,11 +1,31 @@
-
-<div style="justify-content: center; display: flex">
-<canvas style="min-height:300px; min-width: 200px;" baseChart
-        [datasets]="polarAreaChartDatasets"
-        [labels]="polarAreaChartLabels"
-        [legend]="polarAreaLegend"
-        [options]="polarAreaOptions"
-        [type]="'polarArea'">
+<html>
+<head>
+    <title> Recommend Div </title>
+    <style>
+    .recommend{
+        background-color:gray;
+        width:auto;
+        height: 60px;
+    }
+    </style>
+</head>
+<body>
+    <div class="recommend">
+        <div>
+                
+        </div>
+    </div>
+    <div style="justify-content: center; display: flex; vertical-align: middle; margin-top: 20%;" >
+        <canvas style="min-height:300px; min-width: 250px;" baseChart
+                [datasets]="polarAreaChartDatasets"
+                [labels]="polarAreaChartLabels"
+                [legend]="polarAreaLegend"
+                [options]="polarAreaOptions"
+                [type]="'polarArea'">
+                
+        </canvas>
+        </div>
         
-</canvas>
+</body>
+</html>
 

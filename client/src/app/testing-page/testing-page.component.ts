@@ -91,7 +91,7 @@ export class TestingPageComponent {
     
     //console.log(`Address: ${ data$}`);
     MaterialService.toast('Ваши результаты сохранены!')
-    
+    this.router.navigate(["/personalOrder"])
   }
 
 }
