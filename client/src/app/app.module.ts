@@ -69,7 +69,7 @@ import { TestComponent } from './test/test.component';
     ModalCreateFactorComponent,
     ModalCreateTestingComponent,
     PersonalOrderComponent,
-    TestComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
