@@ -25,14 +25,17 @@
   
     <!-- Name Column -->
     <ng-container matColumnDef="textQuestion" >
-      <th mat-header-cell *matHeaderCellDef> Текст вопроса </th>
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Текст вопроса </th>
       <td mat-cell *matCellDef="let element" style="width: 350px;"> {{element.textQuestion}} </td>
     </ng-container>
 
     <ng-container matColumnDef="answers">
-      <th mat-header-cell *matHeaderCellDef> Ответы </th>
-      <mat-cell *matCellDef="let element" >
-        <div >
+      <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Ответы </th>
+      <mat-cell *matCellDef="let element"  style="display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;">
+        <div  >
           <ng-container  *ngFor="let item of element.answers"  >
 
                 <mat-expansion-panel style="margin-top: 15px; margin-bottom: 15px;">
@@ -68,9 +71,9 @@
     </mat-cell>
     </ng-container>
 
-      <ng-container matColumnDef="factors">
-        <th mat-header-cell *matHeaderCellDef> Текст вопроса </th>
-        <td mat-cell *matCellDef="let element"> 
+      <ng-container matColumnDef="factors" > 
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Действия </th>
+        <td mat-cell *matCellDef="let element" style="text-align: center;"> 
             <div class="button-row">
               <button class="mr-2" (click) = "addQuestiontoTest(element.idQuestion)" mat-mini-fab matTooltip="Primary" color="primary" >
                 <mat-icon>add icon</mat-icon>
