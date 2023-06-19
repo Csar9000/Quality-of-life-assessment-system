@@ -1,14 +1,35 @@
+<html>
+<head>
+    <title> Recommend Div </title>
+    <style>
+    .recommend{
+        width:auto;
+        height: 60px;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper grey darken-1">
+            <a href="#" class="brand-logo"> PBS</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a>Выход</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <ul id="slide-out" class="sidenav sidenav-fixed a-sidenav" style="margin-top: 64px;" >
+        <li class="nav-item nav-fill" *ngFor="let link of links">
+            <a [routerLink]="[link.url]" class="waves-effect waves-orange" style="font-size: medium;text-decoration: none;">
+                {{link.name}}
+            </a>
+        </li>
+    </ul>
+    
+    <main class="content">
+    <router-outlet></router-outlet>    
+    </main>    
+</body>
+</html>
 
 
-<ul id="slide-out" class="sidenav sidenav-fixed a-sidenav" >
-    <h4>PBS ANHK</h4>
-    <li class="nav-item nav-fill" *ngFor="let link of links">
-        <a [routerLink]="[link.url]" class="waves-effect waves-orange" style="font-size: medium;text-decoration: none;">
-            {{link.name}}
-        </a>
-    </li>
-</ul>
-
-<main class="content">
-<router-outlet></router-outlet>    
-</main>
