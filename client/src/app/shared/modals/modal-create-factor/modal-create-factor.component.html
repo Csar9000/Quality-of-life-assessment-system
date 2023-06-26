@@ -4,6 +4,42 @@
     <div class="d-flex align-items-center justify-content-center">
         <div class="wrapper " >
           
+          <div class="box">
+            <mat-form-field style="width: 300px;">
+                <mat-label>Выберите главный фактор</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let j of mainFactors" [value]="j" >{{j}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+        </div>
+
+        <div class="wrapper" style="text-align:center;">
+          <div class="box"  style="text-align:center;">
+            <mat-label style="margin-bottom: 10px; text-align: center; justify-content: center;">ИЛИ</mat-label>
+          </div>
+          <div class="box"  style="text-align:center; margin-top: 10px;">
+            <mat-label>Введите название главного фактора</mat-label>
+          </div>
+        </div>
+
+
+
+        <form [formGroup]="mainFactorInput" class="example-container" >
+          <div class="box">
+              <mat-form-field style="width: 300px;"  appearance="outline">
+                  
+                  <input matInput type="text"
+                         aria-label="Название главного фактора"
+                         matInput
+                         formControlName="mainFactorName"
+                         style="height:fit-content"
+                  >
+                </mat-form-field>
+          </div>
+
+          
+        </form>
+
           <form [formGroup]="factorForm" class="example-container" >
             <div class="box">
                 <mat-form-field style="width: 300px;"  appearance="outline">
@@ -16,14 +52,7 @@
                     >
                   </mat-form-field>
             </div>
-            <div class="box">
-                <mat-form-field style="width: 300px;">
-                    <mat-label>Выберите главный фактор</mat-label>
-                        <mat-select>
-                          <mat-option *ngFor="let j of mainFactors" [value]="j" >{{j}}</mat-option>
-                        </mat-select>
-                      </mat-form-field>
-            </div>
+
             
           </form>
           <div class="box">

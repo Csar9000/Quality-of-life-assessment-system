@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-create-factor',
@@ -9,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class ModalCreateFactorComponent {
 
   factorForm: FormGroup
+  mainFactorInput: FormGroup
   selected = 'option2';
   mainFactors=[
     'Здоровье',
@@ -17,5 +18,24 @@ export class ModalCreateFactorComponent {
     'Эмоциональное',
     'Финансовое',
   ]
+
+  constructor(){
+    this.searchFormInit();
+  }
+
+  searchFormInit() {
+    this.factorForm = new FormGroup({
+      departmentName: new FormControl('', Validators.pattern('^[a-zA-Z ]+$')),
+      testName: new FormControl('', Validators.pattern('^[a-zA-Z ]+$')),
+      testingBeginDate: new FormControl(''),
+      testingEndDate: new FormControl('')
+    });
+    this.mainFactorInput = new FormGroup({
+      departmentName: new FormControl('', Validators.pattern('^[a-zA-Z ]+$')),
+      testName: new FormControl('', Validators.pattern('^[a-zA-Z ]+$')),
+      testingBeginDate: new FormControl(''),
+      testingEndDate: new FormControl('')
+    });
+  }
 
 }
