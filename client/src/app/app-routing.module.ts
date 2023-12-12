@@ -15,6 +15,7 @@ import { PassingTestCheckComponent } from './passing-test-check/passing-test-che
 import { PersonalOrderComponent } from './personal-order/personal-order.component';
 import { ModalCreateFactorComponent } from './shared/modals/modal-create-factor/modal-create-factor.component';
 import { EmployeeOverviewComponent } from './shared/layouts/employee-overview/employee-overview.component';
+import { CognitiveMapComponent } from './cognitive-map/cognitive-map.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
       {path: 'edit/:questionId', component: QuestionSingleConstructorComponent },
       {path: 'questionBank/:idTest', component: QuestionBankComponent },
       {path: 'passing-check', component: PassingTestCheckComponent },
-      {path: 'create-factor', component: ModalCreateFactorComponent}
+      {path: 'create-factor', component: ModalCreateFactorComponent},
+      {path: 'cognitive-map', component: CognitiveMapComponent}
   ]
   },
   {

@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 92vh;
+    justify-content: center;
+    vertical-align: middle;
+    display: flex;
+    border:solid;
+    border-width: 2px;
+    border-color: blue;
+  }
+.cogMap{
+    display: flex;
+    border: solid;
+    border-width: 2px;
+    border-color: brown;
+}

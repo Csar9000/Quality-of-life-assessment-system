@@ -41,6 +41,7 @@ import { ModalCreateFactorComponent } from './shared/modals/modal-create-factor/
 import { ModalCreateTestingComponent } from './shared/modals/modal-create-testing/modal-create-testing.component';
 import { PersonalOrderComponent } from './personal-order/personal-order.component';
 import { NgChartsModule } from 'ng2-charts';
+import {NgxGraphModule} from '@swimlane/ngx-graph';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { TestComponent } from './test/test.component';
@@ -76,6 +77,7 @@ import { CognitiveMapComponent } from './cognitive-map/cognitive-map.component';
   imports: [
     BrowserModule,
     NgxMatSelectSearchModule,
+    NgxGraphModule,
     MatSelectModule,
     NgChartsModule,
     MatFormFieldModule,

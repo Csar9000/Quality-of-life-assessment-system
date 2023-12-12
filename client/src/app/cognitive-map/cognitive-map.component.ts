@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {NgxGraphModule} from '@swimlane/ngx-graph';
 
 @Component({
   selector: 'app-cognitive-map',
