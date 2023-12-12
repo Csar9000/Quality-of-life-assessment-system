@@ -44,6 +44,7 @@ import { NgChartsModule } from 'ng2-charts';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { TestComponent } from './test/test.component';
+import { CognitiveMapComponent } from './cognitive-map/cognitive-map.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { TestComponent } from './test/test.component';
     ModalCreateFactorComponent,
     ModalCreateTestingComponent,
     PersonalOrderComponent,
-    TestComponent
+    TestComponent,
+    CognitiveMapComponent
   ],
   imports: [
     BrowserModule,
